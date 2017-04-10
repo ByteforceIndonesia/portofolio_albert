@@ -53,6 +53,24 @@ body
 		}
 	}
 
+	.error
+	{
+		width:100%;
+		padding:0.1em 0 0.1em 0.1em;
+		margin:1em 0 1em 0.5;
+		background: #e74c3c;
+		text-align: center;
+		
+		h2
+		{
+			font-family: 'helvetica';
+			font-size: 16px;
+			font-weight: 300;
+			margin: 1em;
+			color:#fff;
+		}
+	}
+
 	input[type=text]
 	{
 		border: 0;

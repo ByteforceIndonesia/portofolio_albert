@@ -13,16 +13,21 @@
 					<img src="<?php echo base_url() . 'assets/images/byteforce.png'?>" alt="">
 					<h2>Byteforce Solutions</h2>
 				</div>
+
+				<?php if($this->session->flashdata('login_error')): ?>
+				
+					<div class="error">
+						<h2><?php echo $this->session->flashdata('login_error'); ?></h2>
+					</div>
+
+				<?php endif; ?>
+				
+
 				<input type="text" name="username" placeholder="Username" id="">
 				
 				<input type="text" name="password" placeholder="Password" id="">
 
 				<input type="submit" value="Login">
-
-				<div class="error">
-					<?php echo $this->session->flashdata('login_error'); ?>
-				</div>
-				
 			<?php echo form_close() ?>
 		</div>
 	</body>

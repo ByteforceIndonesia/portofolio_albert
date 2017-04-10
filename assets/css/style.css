@@ -36,6 +36,18 @@ body {
       #login .login_box .logo_login img {
         max-width: 75px;
         float: left; }
+  #login .error {
+    width: 100%;
+    padding: 0.1em 0 0.1em 0.1em;
+    margin: 1em 0 1em 0.5;
+    background: #e74c3c;
+    text-align: center; }
+    #login .error h2 {
+      font-family: 'helvetica';
+      font-size: 16px;
+      font-weight: 300;
+      margin: 1em;
+      color: #fff; }
   #login input[type=text] {
     border: 0;
     border: solid 1px #ccc;

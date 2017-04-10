@@ -1,0 +1,13 @@
+/* ----------------------------
+---- ByteForce Indonesia ------
+------ Albert's Website -------
+-----------------------------*/
+body {
+  margin: 0;
+  padding: 0; }
+
+#header .collapsed {
+  left: -250px;
+  position: absolute; }
+
+/*# sourceMappingURL=style.css.map */

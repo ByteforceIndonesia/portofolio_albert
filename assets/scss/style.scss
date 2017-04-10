@@ -89,6 +89,24 @@ body
 		border: solid 1px #000;
 	}
 
+	input[type=password]
+	{
+		border: 0;
+		border: solid 1px #ccc;
+		width:100%;
+		margin: 0.5em 0 1em 0;
+		font-size: 18px;
+		font-weight: 300;
+		padding: 10px;
+		transition:border .35s ease-in-out;
+	}
+
+	input[type=password]:focus
+	{
+		outline: none;
+		border: solid 1px #000;
+	}
+
 	input[type=submit]
 	{
 		width:100%;

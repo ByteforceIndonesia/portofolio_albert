@@ -25,7 +25,7 @@
 
 				<input type="text" name="username" placeholder="Username" id="">
 				
-				<input type="text" name="password" placeholder="Password" id="">
+				<input type="password" name="password" placeholder="Password" id="">
 
 				<input type="submit" value="Login">
 			<?php echo form_close() ?>

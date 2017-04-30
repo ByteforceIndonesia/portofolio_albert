@@ -8,12 +8,12 @@
 	</title>
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="<?php echo base_url() . CSS_DIR . 'style.css' ?>">
+	<link rel="stylesheet" href="<?php echo base_url() . CSS_DIR . 'adminstyle.css' ?>">
 	<link rel="stylesheet" href="<?php echo base_url() . CSS_DIR . 'bootstrap.min.css' ?>">
 	<link rel="stylesheet" href="<?php echo base_url() . CSS_DIR . 'bootstrap-theme.min.css' ?>">
 
 	<!-- JS -->
-	<script src="<?php echo base_url() . JS_DIR . 'jquery-3.1.1.min.js' ?>"></script>
+	<script src="<?php echo base_url() . JS_DIR . 'jquery-3.2.1.min.js' ?>"></script>
 	<script src="<?php echo base_url() . JS_DIR . 'bootstrap.min.js' ?>"></script>
 
 </head>

@@ -20,6 +20,11 @@ class Admin extends MY_Controller {
 		$this->template->load('../admin/template/template', 'admin/home', $this->data);
 	}
 
+	public function webconfig()
+	{
+		$this->template->load('../admin/template/template', 'admin/webconfig', $this->data);
+	}
+
 	public function logout()
 	{
 		session_destroy();

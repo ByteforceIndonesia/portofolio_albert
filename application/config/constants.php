@@ -88,4 +88,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 // Stuff We Need
 defined('CSS_DIR') 			   OR define('CSS_DIR','assets/css/'); 		//CSS Links
 defined('JS_DIR')			   OR define('JS_DIR','assets/js/');		//JS Links
-defined('IMAGES_DIR')		   OR define('IMAGES_DIR','assets/images'); //Images Links
+defined('IMAGES_DIR')		   OR define('IMAGES_DIR','assets/images/'); //Images Links

@@ -6,8 +6,149 @@ body {
   margin: 0;
   padding: 0; }
 
-#header .collapsed {
-  left: -250px;
-  position: absolute; }
+#login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2c3e50; }
+  #login .login_box {
+    background: #fff;
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+    padding: 2em;
+    padding-top: 2.2em;
+    padding-bottom: 2em;
+    -webkit-box-shadow: 10px 10px 29px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 29px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 29px -5px rgba(0, 0, 0, 0.75); }
+    #login .login_box .logo_login {
+      width: 100%;
+      height: 80px;
+      margin-bottom: 0.5em; }
+      #login .login_box .logo_login h2 {
+        float: left;
+        margin-left: 0.5em;
+        font-family: 'helvetica';
+        font-weight: 300; }
+      #login .login_box .logo_login img {
+        max-width: 75px;
+        float: left; }
+  #login .error {
+    width: 100%;
+    padding: 0.1em 0 0.1em 0.1em;
+    margin: 1em 0 1em 0.5;
+    background: #e74c3c;
+    text-align: center; }
+    #login .error h2 {
+      font-family: 'helvetica';
+      font-size: 16px;
+      font-weight: 300;
+      margin: 1em;
+      color: #fff; }
+  #login input[type=text] {
+    border: 0;
+    border: solid 1px #ccc;
+    width: 100%;
+    margin: 0.5em 0 1em 0;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 10px;
+    transition: border .35s ease-in-out; }
+  #login input[type=text]:focus {
+    outline: none;
+    border: solid 1px #000; }
+  #login input[type=password] {
+    border: 0;
+    border: solid 1px #ccc;
+    width: 100%;
+    margin: 0.5em 0 1em 0;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 10px;
+    transition: border .35s ease-in-out; }
+  #login input[type=password]:focus {
+    outline: none;
+    border: solid 1px #000; }
+  #login input[type=submit] {
+    width: 100%;
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 1em;
+    border: 0;
+    padding: 1em 0 1em 0;
+    background: #34495e;
+    cursor: pointer;
+    transition: background .35s ease-in-out;
+    color: #fff; }
+  #login input[type=submit]:hover {
+    background: #2c3e50; }
+
+#header {
+  float: left;
+  width: 20%;
+  height: 100vh; }
+  #header .side-bar-toggle {
+    padding: 1em;
+    position: absolute;
+    left: 0;
+    transition: all .6s ease-in-out; }
+    #header .side-bar-toggle a > img {
+      width: 35px; }
+  #header .blacked {
+    opacity: 0.4;
+    background: #000; }
+  #header .side-bar {
+    padding: 1em;
+    width: 250px;
+    left: 0px;
+    transform: translateX(0);
+    position: absolute;
+    transition: all .6s ease-in-out;
+    background: #2c3e50;
+    height: 100vh;
+    -webkit-box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75); }
+    #header .side-bar .byteforce-logo {
+      margin: 1em 0 5em 0;
+      padding-bottom: 7em;
+      border-bottom: solid 1px #fff;
+      height: auto; }
+      #header .side-bar .byteforce-logo h3 {
+        float: left;
+        font-family: 'helvetica';
+        font-weight: 300;
+        font-size: 16px;
+        margin-top: 2em;
+        color: #fff; }
+      #header .side-bar .byteforce-logo img {
+        float: left;
+        max-width: 75px; }
+  #header .collapsed {
+    left: -250px;
+    position: absolute;
+    transform: translateX(-100px); }
+  #header .expanded {
+    transform: translateX(270px);
+    position: absolute; }
+  #header nav ul {
+    list-style: none;
+    padding-left: 0.5em; }
+    #header nav ul li {
+      margin-top: 2em; }
+      #header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 300; }
+
+#body {
+  width: 80%;
+  float: left;
+  height: 100vh;
+  overflow-y: scroll; }
 
 /*# sourceMappingURL=style.css.map */

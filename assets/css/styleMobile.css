@@ -1,0 +1,227 @@
+
+
+@media only screen and (max-width: 700px) {
+  html {
+  }
+  body {
+  }
+  .imageBlock1{
+    position : absolute;
+    bottom : 0px;
+    z-index: 10;
+    display : flex;
+    flex-direction: column;
+    width : 50%;
+    height : 80%;
+    background-color : transparent;
+
+    justify-content: flex-end;
+  }
+
+  .imageBlock2{
+    position : absolute;
+    top : 20%;
+    right :-600px;
+    bottom : 0px;
+    width : 300px;
+    height : 300px;
+    background-color : transparent;
+
+  }
+  .pagePreloadHeader{
+    height : 100vh!important;
+-webkit-transition: height 1000000s ease;
+-moz-transition: height 1000000s ease;
+-o-transition: height 1000000s ease;transition: height 1000000s ease;
+  }
+
+  .wrapper960{
+-webkit-transition: height 1000000s ease;
+-moz-transition: height 1000000s ease;
+-o-transition: height 1000000s ease;
+transition: height 1000000s ease;
+  }
+  .pageSlide{
+    z-index : 100;
+    display : flex;
+    min-height : 100vh;
+    width : 100%;
+  -webkit-transition: height 1000000s ease;
+-webkit-transition: min-height 1000000s ease;
+  -moz-transition: height 1000000s ease;
+-moz-transition: min-height 1000000s ease;
+  -o-transition: height 1000000s ease;
+-o-transition: min-height 1000000s ease;
+  transition: height 1000000s ease;
+transition: min-height 1000000s ease;
+
+    justify-content: center;
+  }
+
+
+  .cobabgall{
+    position : fixed;
+    width : 100%;
+    height : 100%;
+  -webkit-transition: height 1000000s ease;
+  -moz-transition: height 1000000s ease;
+  -o-transition: height 1000000s ease;
+  transition: height 1000000s ease;
+  }
+
+  .abilityBar{
+    display : flex;
+    margin-top : 6px;
+    height : 30px;
+
+    align-items: center;
+  }
+  .abIconSmall{
+  margin-right : 16px;
+  margin-left : 16px;
+      width : 24px;
+      height : 24px;
+  }
+  .abBar{
+    float : left;
+    width : 160px;
+    height : 14px;
+    border : 1px solid #fff;
+
+  }
+  .abText{
+    display : flex;
+    float : left;
+    width : 80px;
+    height : 30px;
+    color : white;
+    text-align : right;
+
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .mobileNav{
+    width : 100%!important;
+    height : 100%!important;
+    background-color : white!important;
+  }
+  .mobileNav ul {display:flex;
+  flex-direction: column;
+    float : left;
+    width : 100%;
+
+  justify-content: flex-start;
+
+  }
+
+  .mobileNav li{
+    margin-top : 50px;
+  }
+
+  #linkBurger{
+    float : right;
+    margin-top : 20px;
+  }
+  .abBarInside{
+    display : flex;
+    margin : 3px;
+    width : 154px;
+    height : 8px;
+    background-color : white;
+    transform-origin : left;
+
+    justify-content: flex-start;
+  }
+
+
+  .pageWrapper{
+    width : 100%;
+    background-color : transparent;
+  }
+  .abIcon{
+    float : left;
+    margin-top : 8px;
+    margin-right : 16px;
+    margin-left : 36px;
+    width : 36px;
+    height : 36px;
+  }
+  .diamondGrey {
+    width : 36px;
+    height : 36px;
+  }
+  .sectionTitle{
+    display: flex;
+  margin-left : 16px;
+    padding-top : 10px;
+    height : 36px;
+    color : white;
+    color : #333;
+    letter-spacing: 6px;
+    font-weight : bold;
+    font-size : 36px;
+    font-family: code;
+
+    align-items: center;
+  }
+
+  .abilityBox{
+    float : left;
+    margin-top : 36px;
+    width : 100% ;
+    background-color : transparent;
+  }
+
+
+  .lineList li.singleList{
+    position: relative;
+    margin-left : 6px;
+    width : 2px ;
+    background-color : #333;
+    list-style-type: none;
+    font-size : 100%;
+  }
+  .lineList div{
+    margin-left : 6px;
+    padding-top : 32px;
+    padding-left : 24px;
+    width : 170px;
+
+  }
+  .quotesStrip{z-index : 4;
+    margin-left : 17%;
+    width : 66%;
+    height : 300px;
+    letter-spacing: 1px;
+  }
+  .quotesStrip div{
+  display:flex;
+  flex-direction: column;
+    margin-top : -10px;
+  padding-top : 16px;
+padding-right : 0px;
+  padding-left : 0px;
+  color : white;
+  text-align: center;
+  font-size : 16px;
+
+  justify-content: center;
+  }
+  .quotesStrip div p{
+    margin-right : 5%;
+    margin-left : 5%;
+    width : 90%;
+  }
+
+
+
+  .lineStamp div{
+        position : absolute;
+      margin-left : -140px;
+      width : 100px;
+      text-align : right;
+      font-size : 16px;
+  }
+
+}

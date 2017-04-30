@@ -69,8 +69,7 @@ class Login extends MY_Controller {
 				);
 
 			$this->db->insert('admins', $userdata);
-
-			echo 'Inserted into database';
+			redirect(base_url('login'));
 		}else
 		{
 			$this->load->view('admin/signup');

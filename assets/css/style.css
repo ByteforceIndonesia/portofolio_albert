@@ -1,154 +1,533 @@
-/* ----------------------------
----- ByteForce Indonesia ------
------- Albert's Website -------
------------------------------*/
-body {
-  margin: 0;
-  padding: 0; }
+@font-face {
+    font-weight : bold;
+    font-family: code;
+    src: url("CODE Bold.otf");
+}
+@font-face {
+    font-family: code;
+    src: url("CODE Light.otf");
+}
 
-#login {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
+
+body{
+  overflow-x : hidden;
+  margin : 0px;
+  padding : 0px;
+  height : auto;
+  font-family : sans-serif;
+
+}
+
+.quotesSlide {
+    min-height: 400px;
+    height : 100%;
+    background: transparent;
+}
+
+
+.pagePreloadHeader{
+  display : flex;
+  flex-direction:  row;
+  overflow : hidden;
+  width : 100%;
+  height : 100%;
+  background-color : white;
+  text-align : center;
+
+  perspective: 1000px;
   justify-content: center;
-  background: #2c3e50; }
-  #login .login_box {
-    background: #fff;
-    width: 300px;
-    height: auto;
-    overflow: hidden;
-    padding: 2em;
-    padding-top: 2.2em;
-    padding-bottom: 2em;
-    -webkit-box-shadow: 10px 10px 29px -5px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 29px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 29px -5px rgba(0, 0, 0, 0.75); }
-    #login .login_box .logo_login {
-      width: 100%;
-      height: 80px;
-      margin-bottom: 0.5em; }
-      #login .login_box .logo_login h2 {
-        float: left;
-        margin-left: 0.5em;
-        font-family: 'helvetica';
-        font-weight: 300; }
-      #login .login_box .logo_login img {
-        max-width: 75px;
-        float: left; }
-  #login .error {
-    width: 100%;
-    padding: 0.1em 0 0.1em 0.1em;
-    margin: 1em 0 1em 0.5;
-    background: #e74c3c;
-    text-align: center; }
-    #login .error h2 {
-      font-family: 'helvetica';
-      font-size: 16px;
-      font-weight: 300;
-      margin: 1em;
-      color: #fff; }
-  #login input[type=text] {
-    border: 0;
-    border: solid 1px #ccc;
-    width: 100%;
-    margin: 0.5em 0 1em 0;
-    font-size: 18px;
-    font-weight: 300;
-    padding: 10px;
-    transition: border .35s ease-in-out; }
-  #login input[type=text]:focus {
-    outline: none;
-    border: solid 1px #000; }
-  #login input[type=password] {
-    border: 0;
-    border: solid 1px #ccc;
-    width: 100%;
-    margin: 0.5em 0 1em 0;
-    font-size: 18px;
-    font-weight: 300;
-    padding: 10px;
-    transition: border .35s ease-in-out; }
-  #login input[type=password]:focus {
-    outline: none;
-    border: solid 1px #000; }
-  #login input[type=submit] {
-    width: 100%;
-    font-weight: 300;
-    font-size: 18px;
-    margin-top: 1em;
-    border: 0;
-    padding: 1em 0 1em 0;
-    background: #34495e;
-    cursor: pointer;
-    transition: background .35s ease-in-out;
-    color: #fff; }
-  #login input[type=submit]:hover {
-    background: #2c3e50; }
+}
+#phTitle{
+  height:100%;
+}
+.pageSlide1{
+  padding-bottom : 40px;
+  background-color : #efefef;
+}
+.pageSlide2{
+  background-color : #333;
+}
 
-#header {
-  float: left;
-  width: 20%;
-  height: 100vh; }
-  #header .side-bar-toggle {
-    padding: 1em;
-    position: absolute;
-    left: 0;
-    transition: all .6s ease-in-out; }
-    #header .side-bar-toggle a > img {
-      width: 35px; }
-  #header .blacked {
-    opacity: 0.4;
-    background: #000; }
-  #header .side-bar {
-    padding: 1em;
-    width: 250px;
-    left: 0px;
-    transform: translateX(0);
-    position: absolute;
-    transition: all .6s ease-in-out;
-    background: #2c3e50;
-    height: 100vh;
-    -webkit-box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75); }
-    #header .side-bar .byteforce-logo {
-      margin: 1em 0 5em 0;
-      padding-bottom: 7em;
-      border-bottom: solid 1px #fff;
-      height: auto; }
-      #header .side-bar .byteforce-logo h3 {
-        float: left;
-        font-family: 'helvetica';
-        font-weight: 300;
-        font-size: 16px;
-        margin-top: 2em;
-        color: #fff; }
-      #header .side-bar .byteforce-logo img {
-        float: left;
-        max-width: 75px; }
-  #header .collapsed {
-    left: -250px;
-    position: absolute;
-    transform: translateX(-100px); }
-  #header .expanded {
-    transform: translateX(270px);
-    position: absolute; }
-  #header nav ul {
-    list-style: none;
-    padding-left: 0.5em; }
-    #header nav ul li {
-      margin-top: 2em; }
-      #header nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 20px;
-        font-weight: 300; }
+.pageSlide3{
+  background-color : #efefef;
+}
 
-#body {
-  width: 80%;
-  float: left;
-  height: 100vh;
-  overflow-y: scroll; }
+.pageSlide2 .sectionTitle{
+  color : white;
+}
 
-/*# sourceMappingURL=style.css.map */
+.pageSlide3 .sectionTitle{
+  color : #333;
+}
+
+.alteringPage{
+  z-index : 0;
+  flex-direction: column;
+  background-image : url('../images/nightsky.png');
+  background-size : cover;
+
+}
+
+.cobabgall{
+  position : fixed;
+  width : 100%;
+  height : 100%;
+}
+
+.alteringPage2{
+  z-index : 0;
+  flex-direction: column;
+  background-image : url('../images/rocket.jpg');
+  background-size : cover;
+
+}
+.alteringPage3{
+  z-index : 0;
+  flex-direction: column;
+  background-image : url('../images/stars.jpg');
+  background-size : cover;
+
+}
+
+.quotesStrip{z-index : 4;
+  margin-left : 17%;
+  width : 66%;
+  height : 100px;
+}
+
+.quotesStrip div{
+display:flex;
+flex-direction: column;
+  margin-top : -10px;
+padding : 12px;
+padding-top : 16px;
+color : white;
+text-align: center;
+font-size : 24px;
+
+justify-content: center;
+}
+.portfolioWrapper{
+  margin-top :50px;
+  background-color : transparent;
+}
+
+.pageSlide{
+  z-index : 100;
+  display : flex;
+  min-height : 100%;
+  width : 100%;
+
+  justify-content: center;
+}
+#wrapperContent{
+  display : flex;
+}
+
+
+.pageHeader-title{
+  height : 200px;
+  font-size : 18px;
+  opacity : 0;
+}
+
+.pageHeader-preloader{
+  position : relative;
+  margin-top : 50px;
+  width : 50px;
+  height : 4px;
+  background-color :transparent;
+  text-align : left;
+  opacity : 0;
+
+  justify-content: flex-start;
+}
+#slidePreload{
+  height : 100%;
+}
+.phLogo{
+  z-index : 10;
+}
+#preloadContent{
+  position : absolute;
+  width : 100%;
+  height : 4px;
+  background-color : #fff;
+  transform : scaleX(0);
+  transform-origin : 0px;
+}
+
+#slidePreload{
+  background-color: #333;
+}
+
+.imageBlock1{
+  position : absolute;
+  bottom : 0px;
+  z-index: 10;
+  display : flex;
+  flex-direction: column;
+  width : 25%;
+  height : 80%;
+  background-color : transparent;
+
+      justify-content: flex-end;
+}
+.imageBlock2{
+  position : absolute;
+  top : 20%;
+  right :-300px;
+  bottom : 0px;
+  width : 300px;
+  height : 300px;
+  background-color : transparent;
+
+}
+.imageBlock2 embed{
+  top : 0px;
+  bottom : 0px;
+  left : 0px;
+  width : 300px;
+  height : 300px;
+}
+
+/**/
+.wrapper960{
+  width : 960px;
+  height : 100%;
+  background-color : transparent;
+
+}
+
+/*navbar*/
+.stickNav{
+  position : fixed!important;
+  top : 0px;
+  z-index : 1500!important;
+}
+
+
+
+.allWhite li:after
+{
+    background-color: #fff!important;
+}
+.allWhite li a{
+  color : #fff!important;
+}
+.allBlack li:after
+{
+    background-color: #000!important;
+}
+.allBlack li a{
+  color : #000!important;
+}
+
+.navbarSlide1 li
+{
+    float: right;
+    margin: 0 0;
+    margin-top: 14px;
+    margin-left: 28px;
+    list-style: None;
+    text-decoration: none;
+    font-size: 18px;
+}
+.navbarSlide1 a
+{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+.navbarSlide1 li:after
+{
+    position: relative;
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    content: '';
+    transition: all .2s ease-out;
+}
+.navbarSlide1 li:hover:after
+{
+    width: 100%;
+}
+.navbarSlide1 .active li:after
+{
+    width: 100%;
+}
+#navbarSlide{
+  padding-left : 0px;
+
+}
+#navbarSlide li{
+  float : left;
+  margin-right : 28px;
+  margin-left : 28px;
+  list-style : none;
+  letter-spacing : 2px;
+  font-size : 24px;
+
+}
+#navbarSlide li a{
+  color : black;
+  text-decoration:  none;
+  transition : 0.2s all ease-in-out;
+}
+
+
+#navbarWrapper{
+  position : absolute;
+bottom:0px;
+  z-index : 50;
+  display : flex;
+  width : 100%;
+  height : 100px;
+  background-color : transparent;
+
+  justify-content:  space-around;
+}
+
+
+
+.pageWrapper{
+  width : 960px;
+  background-color : transparent;
+}
+
+.sectionTitle{
+  display: flex;
+margin-left : 16px;
+  padding-top : 10px;
+  height : 110px;
+  color : white;
+  color : #333;
+  letter-spacing: 6px;
+  font-weight : bold;
+  font-size : 100px;
+  font-family: code;
+
+  align-items: center;
+}
+
+.pwTitle{
+  display : flex;
+  padding-top : 50px;
+}
+
+.diamondGrey {
+  width : 120px;
+  height : 120px;
+}
+
+#rect4142 {
+  fill: pink;
+}
+
+/*Ability */
+#wrapperContent{
+  display : flex;
+  flex-direction: column;
+}
+
+.timelineBox{
+  float : left;
+  width : 600px ;
+}
+
+.lineList{
+  margin-top : 0px;
+  margin-left : 30px;
+color : #333;
+transform-origin  : 0% 0%;
+}
+
+.lineList li div{
+  opacity : 0;
+  transition : all 0.5s ease-out;
+}
+.lineList li div.in-view{
+  opacity : 1;
+}
+
+.lineList li.singleList{
+  position: relative;
+  margin-left : 6px;
+  width : 2px ;
+  background-color : #333;
+  list-style-type: none;
+  font-size : 120%;
+}
+
+.lineList li div ul li.descList{
+  position: relative;
+  margin-top : 4px;
+  margin-left : 6px;
+  width : 2px;
+  background-color : #333;
+  list-style-type: none;
+}
+
+.lineList li div ul{
+  margin-left :0px;
+  padding : 0px;
+}
+.lineList div{
+  margin-left : 10px;
+  padding-top : 32px;
+  padding-left : 24px;
+  width : 400px;
+
+}
+
+.nestedList{
+  margin-left :100px;
+  width : 400px;
+}
+
+.lineStamp{
+    position: relative;
+    margin-top : -10px;
+    margin-left : 6px;
+    width : 2px ;
+    background-color : #333;
+    list-style-type: none;
+}
+
+.lineStamp div{
+      position : absolute;
+    margin-left : -150px;
+    width : 100px;
+    text-align : right;
+    font-size : 24px;
+}
+.careerTitle{
+  letter-spacing : 1px;
+}
+.descList div{
+  margin-left : 0px;
+  padding-top : 6px;
+  padding-left : 12px;
+}
+
+
+/*ABILITY */
+.abilityBar{
+  display : flex;
+  margin-top : 6px;
+  height : 50px;
+
+  align-items: center;
+}
+
+.abilityBox{
+  float : left;
+  margin-top : 60px;
+  width : 600px ;
+  background-color : transparent;
+}
+.abText{
+  display : flex;
+  float : left;
+  width : 150px;
+  height : 30px;
+  color : white;
+  text-align : right;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.abIcon{
+  float : left;
+  margin-right : 16px;
+  margin-left : 16px;
+  width : 120px;
+  height : 120px;
+}
+.abIconSmall{
+margin-right : 16px;
+margin-left : 16px;
+    width : 44px;
+    height : 44px;
+}
+
+.abIconBig{
+    float : left;
+    margin-top : 36px;
+    margin-right : 36px;
+margin-left : 16px;
+    width : 96px;
+    height : 96px;
+}
+
+.abBar{
+  float : left;
+  width : 320px;
+  height : 24px;
+  border : 2px solid #fff;
+
+}
+
+
+.abBarInside{
+  display : flex;
+  margin : 3px;
+  width : 194px;
+  height : 18px;
+  background-color : white;
+  transform-origin : left;
+
+  justify-content: flex-start;
+}
+
+.portfolioWrapper{
+  display : flex;
+
+  justify-content: space-between;
+}
+
+.listContact{
+  float : left;
+  color : white;
+}
+.listContact a{
+  color : white;
+}
+.listContact ul{
+  padding-left: 0px;
+  list-style: none;letter-spacing: 0.5px;
+}
+.listContact h2{
+font-family : code;
+}
+.portfolioItem{
+  overflow: hidden;
+  width : 300px;
+  height : 180px;
+box-shadow: 4px 4px 5px rgba(0,0,0,0.2);
+transition : all 0.2s ease-out;
+
+}
+.portfolioItem:hover{
+box-shadow: 8px 8px 5px rgba(0,0,0,0.2);
+  transform:scale(1.1)translateX(-10px)translateY(-10px);
+}
+
+
+.pageSlideFooter{
+  z-index : 2000;
+  display : flex;
+  height : 200px;
+  background-color : #000;
+
+  justify-content: center;}
+
+/*
+  transition : 0.4s all cubic-bezier(.73,0,.39,.99);*/
+#diamond1Career{
+  transform : scaleX(0.1) scaleY(0.1);
+}

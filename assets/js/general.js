@@ -1,6 +1,17 @@
+/*---------------------------------
+-------- Psalms 91 ----------------
+-------- Trust in God -------------
+-------- ByteForce ----------------
+---------------------------------*/
+
 
   var controller = new ScrollMagic.Controller();
     // load dari awal, sampe akhir.
+
+  var images = document.images;
+  var totalLoading = 0;
+  var loaded = 0;
+  var totalImg = images.length;
 
 
     $(".lineList").velocity({scaleY : ["0"] },{duration: 0});
@@ -14,33 +25,58 @@
     $("#title3").velocity({scaleX : ["0"], scaleY :["0"] },{duration: 0});
     $("#diamond3").velocity({scaleX : ["0"], scaleY :["0"] },{duration: 0});
     $("#slide1People").velocity({translatey : ["0%"], opacity : ["0"]},{duration: 0});
-    $("#navbarWrapper").velocity({translateY : "100%"},{duration: 0});
+    $("#navbarWrapper").velocity({translateY : "200%"},{duration: 0});
 
-      $(".portfolioItem").velocity({opacity : "0" },{duration: 0});
+    $(".portfolioItem").velocity({opacity : "0" },{duration: 0});
 
     $(".abBar").velocity({opacity : "0" },{duration: 0});
     $(".abilityDiamondIcon").velocity({opacity : "0" },{duration: 0});
     $(".abText").velocity({opacity : "0" },{duration: 0});
     $(".abBarInside").velocity({scaleX : "0" },{duration: 0});
+    $("body").css("overflow", "hidden");
 
 
+    for(var z = 0; z < images.length; z++)
+    {
+        var img = new Image ();
+        img.onload = imgLoaded;
+        img.onerror = imgLoaded;
+        img.src = images[z].src;
+    }
 
+    function imgLoaded ()
+    {
+        loaded += 1;
+        totalLoading = loaded / totalImg * 6;
+        console.log(totalLoading);
+    }
+
+    // loading bar and preload
     $("#phTitle").velocity({translateY : ["400px",[.73,0,.39,.99]], fontSize:"78px",  opacity :["1",[.73,0,.39,.99]] },{duration: 800, easing: [0,.38,.48,1]});
-    $("#phPreloader").velocity({ scaleX: ["6",[.73,0,.39,.99]], opacity :["1",[.73,0,.39,.99]] },{duration: 800, delay : 400});
+    $("#phPreloader").velocity({ scaleX: [totalLoading,[.73,0,.39,.99]], opacity :["1",[.73,0,.39,.99]] },{duration: 2000, delay : 400});
+    
     $("#preloadContent").velocity({scaleX:[1,0] },{duration: 2400, delay : 800, easing : [.73,0,.39,.99]});
-    $("#phTitle").velocity({translateY : ["-400px",[.73,0,.39,.99]]},{duration: 600, delay : 3200, easing : [.73,0,.39,.99]});
-
-    $("#slide1Logo").velocity({translateX : [["-200%", "0%"],[.73,0,.39,.99]],translateZ: [["-200px"],[.73,0,.39,.99]], rotateY:["-35deg", "-120deg"]},{duration: 800, delay : 3800, easing : [.73,0,.39,.99]});
-    $("#slide1People").velocity({translatey : [["100%", "0%"],[.73,0,.39,.99]], opacity : ["1","0"]},{duration: 800, delay : 3800, easing : [.73,0,.39,.99]});
-
-    $("#slidePreload").velocity({backgroundColorAlpha : ["0",[.04,.39,.41,.97]]},{duration: 600, delay : 4200, easing : [.73,0,.39,.99]});
-
-    $("#navbarWrapper").velocity({translateY : [["0%", "-100%"],[.73,0,.39,.99]]},{duration: 600, delay : 4200, easing : [.73,0,.39,.99]});
-
 
 
   //$("#phTitle").velocity({translateZ : ["-500px",[.73,0,.39,.99]],translateX : ["500px",[.73,0,.39,.99]], scale:"0.3" , rotateY:"0.3" },{duration: 800, easing: [0,.38,.48,1]});
 
+
+    window.onload = function()
+    {
+       // // After finished loading
+      $("#phTitle").velocity({translateY : ["-400px",[.73,0,.39,.99]]},{duration: 600, delay : 0, easing : [.73,0,.39,.99]});
+
+      $("#slide1Logo").velocity({translateX : [["-200%", "0%"],[.73,0,.39,.99]],translateZ: [["-200px"],[.73,0,.39,.99]], rotateY:["-35deg", "-120deg"]},{duration: 800, delay : 600, easing : [.73,0,.39,.99]});
+      $("#slide1People").velocity({translatey : [["100%", "0%"],[.73,0,.39,.99]], opacity : ["1","0"]},{duration: 200, delay : 600, easing : [.73,0,.39,.99]});
+
+      // Ganti preload bg color
+      $("#slidePreload").velocity({backgroundColorAlpha : ["0",[.04,.39,.41,.97]]},{duration: 600, delay : 400, easing : [.73,0,.39,.99]});
+
+      $("#navbarWrapper").velocity({translateY : [["0%", "-100%"],[.73,0,.39,.99]]},{duration: 600, delay : 400, easing : [.73,0,.39,.99]});
+      $("body").css("overflow-y", "scroll");
+      // KENTANG AYEN WKWK
+      $("#navbarWrapper").css("z-index", "100");
+    }
 
     $(document).ready(function(){
 

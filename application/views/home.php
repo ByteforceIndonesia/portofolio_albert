@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <nav id = "navbarWrapper" class="desktopNav">
+  <nav id = "navbarWrapper" class="desktopNav" style="z-index:-1">
     <ul class="navbarSlide1" id="navbarSlide">
       <li><a href="#" id ="linkHome">Home</a></li>
       <li><a href="#" id = "linkCareer">Career</a></li>
@@ -27,7 +27,7 @@
 
     </ul>
   </nav>
-    <nav id = "navbarWrapper" class="mobileNav">
+    <nav id = "navbarWrapper" class="mobileNav" style="z-index:-1">
 
       <ul class="navbarSlide1" id="navbarSlide">
         <li><a href="#" id ="linkBurger"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
@@ -42,7 +42,7 @@
   </div>
   <header class="pagePreloadHeader" id="slidePreload">
 
-    <div class="wrapper960" >
+    <div class="wrapper960">
       <div class="pageHeader-title" id="phTitle">
         <embed src="<?php echo base_url() . IMAGES_DIR ?>logoW.svg" class="phLogo">
 
@@ -53,7 +53,7 @@
         </center>
 
       </div>
-        <div class="imageBlock1" id="slide1People">
+        <div class="imageBlock1" id="slide1People" >
           <img src="<?php echo base_url() . IMAGES_DIR ?>appbesar2.png" width ="100%">
         </div>
         <div class="imageBlock2" id="slide1Logo"><embed src="<?php echo base_url() . IMAGES_DIR ?>logo.svg" class="phLogo"></div>

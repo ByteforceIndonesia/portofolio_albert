@@ -1,7 +1,7 @@
 <head>
 	<title><?php echo $page_title ?></title>
 	<meta name="viewport"
-        content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() . CSS_DIR ?>style.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() . CSS_DIR ?>styleMobile.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() . CSS_DIR ?>font-awesome.min.css" />
@@ -18,16 +18,22 @@
 </head>
 
 <body>
+<div id="wrapperGedeParah" style="overflow-x: hidden;">
   <nav id = "navbarWrapper" class="desktopNav" style="z-index:-1">
     <ul class="navbarSlide1" id="navbarSlide">
       <li><a href="#" id ="linkHome">Home</a></li>
       <li><a href="#" id = "linkCareer">Career</a></li>
       <li><a href="#" id = "linkAbility">Ability</a></li>
       <li><a href="#" id = "linkPort">Portfolio</a></li>
-
     </ul>
   </nav>
-    <nav id = "navbarWrapper" class="mobileNav" style="z-index:-1">
+
+  <div id="panahNav">
+    <div class="panah show">&nbsp</div>
+  </div>
+
+  <!--Mobile ga ada nav-->
+    <!--<nav id = "navbarWrapper" class="mobileNav" style="z-index:-1">
 
       <ul class="navbarSlide1" id="navbarSlide">
         <li><a href="#" id ="linkBurger"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
@@ -37,7 +43,8 @@
         <li><a href="#" id = "linkPort">Portfolio</a></li>
 
       </ul>
-    </nav>
+    </nav>-->
+
   <div class="cobabgall" id="diparticleIn">
   </div>
   <header class="pagePreloadHeader" id="slidePreload">
@@ -307,6 +314,7 @@ software in the Computer Laboratory.<br>( August 2016 – Present )</div>
         </div>
 
         <div class="portfolioWrapper">
+          <center>
           <div class="portfolioItem">
             <img src="<?php echo base_url() . IMAGES_DIR ?>header.png" width ="100%">
           </div>
@@ -316,6 +324,7 @@ software in the Computer Laboratory.<br>( August 2016 – Present )</div>
           <div class="portfolioItem">
             <img src="<?php echo base_url() . IMAGES_DIR ?>header.png" width ="100%">
           </div>
+          </center>
         </div>
 
 
@@ -350,6 +359,7 @@ albertputrapurnama@gmail.com</li>
     </section>
 
   </div>
+  </div>
   <script src="<?php echo base_url() . JS_DIR ?>multiple.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>tilt.jquery.js"></script>
   <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
@@ -357,3 +367,4 @@ albertputrapurnama@gmail.com</li>
   <script src="<?php echo base_url() . JS_DIR ?>particle.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>general.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>general2.js"></script>
+</body>

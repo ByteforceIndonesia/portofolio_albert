@@ -87,9 +87,10 @@ body {
     background: #2c3e50; }
 
 #header {
+  position: absolute;
   float: left;
-  width: 20%;
-  height: 100vh; }
+  width: 10%;
+  height: auto; }
   #header .side-bar-toggle {
     padding: 1em;
     position: absolute;
@@ -104,35 +105,17 @@ body {
     padding: 1em;
     width: 250px;
     left: 0px;
+    height: 93vh;
     transform: translateX(0);
     position: absolute;
     transition: all .6s ease-in-out;
-    background: #2c3e50;
-    height: 100vh;
-    -webkit-box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 15px 0px 29px -5px rgba(0, 0, 0, 0.75); }
-    #header .side-bar .byteforce-logo {
-      margin: 1em 0 5em 0;
-      padding-bottom: 7em;
-      border-bottom: solid 1px #fff;
-      height: auto; }
-      #header .side-bar .byteforce-logo h3 {
-        float: left;
-        font-family: 'helvetica';
-        font-weight: 300;
-        font-size: 16px;
-        margin-top: 2em;
-        color: #fff; }
-      #header .side-bar .byteforce-logo img {
-        float: left;
-        max-width: 75px; }
+    background: #2c3e50; }
   #header .collapsed {
     left: -250px;
     position: absolute;
     transform: translateX(-100px); }
   #header .expanded {
-    transform: translateX(270px);
+    transform: translateX(300px);
     position: absolute; }
   #header nav ul {
     list-style: none;
@@ -146,10 +129,72 @@ body {
         font-weight: 300; }
 
 #body {
-  width: 80%;
   float: left;
-  height: 100vh;
-  overflow-y: scroll; }
+  margin-left: 10%;
+  padding-right: 5% !important;
+  height: auto;
+  overflow-y: scroll;
+  transition: all .6s ease-in-out;
+  padding: 1em;
+  padding-top: 2em; }
+
+.btn {
+  background: #34495e; }
+
+.quotes_field {
+  margin-top: 2em;
+  margin-bottom: 2em; }
+  .quotes_field label {
+    font-size: 20px; }
+
+.hidden {
+  transform: translateY(-50px); }
+
+.movein {
+  transform: translateY(0px); }
+
+.success {
+  transition: all .3s ease-in-out;
+  position: fixed;
+  top: 0;
+  width: 80%;
+  z-index: 1000; }
+
+.error {
+  transition: all .3s ease-in-out;
+  position: fixed;
+  top: 0;
+  margin: auto;
+  width: 80%;
+  z-index: 1000; }
+
+#topheader {
+  padding: 1em;
+  background: #2c3e50;
+  color: #fff;
+  height: 7vh; }
+  #topheader .byteforce-logo {
+    height: auto;
+    display: flex;
+    align-items: center; }
+    #topheader .byteforce-logo h3 {
+      margin-left: 1em;
+      font-family: 'helvetica';
+      font-weight: 300;
+      font-size: 24px;
+      color: #fff; }
+    #topheader .byteforce-logo img {
+      float: left;
+      max-width: 40px;
+      max-height: 40px; }
+  #topheader .account-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    #topheader .account-info span {
+      text-align: right;
+      font-size: 24px;
+      font-weight: 400; }
 
 /* ----------------------------
 ---- ByteForce Indonesia ------

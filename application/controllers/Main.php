@@ -7,6 +7,11 @@ class Main extends MY_Controller {
 	{
 		//Inherit from parent
 		parent::__construct();
+
+		$this->data['abilities'] 	= $this->crud_model->read('ability');
+		$this->data['experience'] 	= $this->crud_model->read('experience');
+		$this->data['portfolio']	= $this->crud_model->read('portfolio');
+		$this->data['quotes']		= $this->crud_model->read('quotes'); 
 	}
 
 	public function index()

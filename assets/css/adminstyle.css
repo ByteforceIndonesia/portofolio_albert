@@ -151,7 +151,7 @@ body {
   transform: translateY(-50px); }
 
 .movein {
-  transform: translateY(0px); }
+  transform: translateY(10px); }
 
 .success {
   transition: all .3s ease-in-out;
@@ -172,7 +172,7 @@ body {
   padding: 1em;
   background: #2c3e50;
   color: #fff;
-  height: 7vh; }
+  height: 8vh; }
   #topheader .byteforce-logo {
     height: auto;
     display: flex;

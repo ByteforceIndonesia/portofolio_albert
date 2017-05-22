@@ -13,6 +13,7 @@
 
 	<!-- JS -->
 	<script src="<?php echo base_url() . JS_DIR . 'jquery-3.2.1.min.js' ?>"></script>
+	<script src="<?php echo base_url() . JS_DIR . 'tether.min.js' ?>"></script>
 	<script src="<?php echo base_url() . JS_DIR . 'bootstrap.min.js' ?>"></script>
 
 </head>

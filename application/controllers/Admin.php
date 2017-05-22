@@ -27,6 +27,7 @@ class Admin extends MY_Controller {
 		$this->data['abilities']		= $this->admin_model->get('ability');
 		$this->data['portfolios']		= $this->admin_model->get('portfolio');
 		$this->data['message']			= $this->session->flashdata('message');
+		$this->data['config']			= $this->admin_model->get('config');
 
 		$this->template->load('../admin/template/template', 'admin/webconfig', $this->data);
 	}
@@ -44,6 +45,11 @@ class Admin extends MY_Controller {
 	public function newability ()
 	{
 		$this->load->view('admin/new_ability');
+	}
+
+	public function changefooter ()
+	{
+		echo "yes";
 	}
 
 	public function newinput($table)

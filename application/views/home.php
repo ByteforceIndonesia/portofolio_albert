@@ -7,8 +7,13 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() . CSS_DIR ?>font-awesome.min.css" />
   <link href="<?php echo base_url() . CSS_DIR ?>multiple.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="<?php echo base_url() . CSS_DIR . 'bootstrap.min.css' ?>">
 
-  <script src="<?php echo base_url() . JS_DIR ?>jquery.js"></script>
+  <!-- JS -->
+  <script src="<?php echo base_url() . JS_DIR . 'jquery-3.2.1.min.js' ?>"></script>
+  <script src="<?php echo base_url() . JS_DIR . 'tether.min.js' ?>"></script>
+  <script src="<?php echo base_url() . JS_DIR . 'bootstrap.min.js' ?>"></script>
+
   <script src="<?php echo base_url() . JS_DIR ?>velocity.min.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>ScrollMagic.min.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>animation.Velocity.js"></script>
@@ -28,10 +33,6 @@
     </ul>
   </nav>
 
-  <div id="panahNav">
-    <div class="panah show">&nbsp</div>
-  </div>
-
   <!--Mobile ga ada nav-->
     <!--<nav id = "navbarWrapper" class="mobileNav" style="z-index:-1">
 
@@ -44,6 +45,26 @@
 
       </ul>
     </nav>-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="newModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">&nbsp</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          &nbsp
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="cobabgall" id="diparticleIn">
   </div>
@@ -72,9 +93,10 @@
   <div id="wrapperContent">
     <section class="alteringPage pageSlide" id ="slideQuotes1">
 
-      <div class="quotesStrip"><div class="quote" id ="quotes1"><p>There has never yet been a man in our
-        history who led a life of ease whose name is worth remembering -
-        Theodore Roosevelt</p></div></div>
+      <div class="quotesStrip"><div class="quote" id ="quotes1">
+      <p>
+        <?php echo $quotes[0]->value; ?>
+      </p></div></div>
     </section>
     <section class="pageSlide1 pageSlide" id = "slideCareer">
       <div class="pageWrapper">
@@ -87,118 +109,48 @@
         </div>
           <div class="timelineBox">
             <ul class="lineList">
-              <li class="singleList">
-                <div>Studied At Smak5</div>
-              </li>
 
-              <li class="lineStamp">
-                <div>2012</div>
-              </li>
+            <?php $timeFrame = null;
+            foreach($experience as $exp): ?>
 
-              <li class="singleList">
-                <div>Started Study At SMAK 5 BPK Penabur</div>
-              </li>
-
-              <li class="singleList">
-                <div class="nestedList">&#9670; <span class="careerTitle">CEO of Dazzle Corporation</span>
+              <?php if(!$exp->nested_value): ?>
+                <li class="singleList">
+                  <div><?php echo $exp->value ?></div>
+                </li>
+              <?php else: ?>
+                <li class="singleList">
+                <div class="nestedList">&#9670; <span class="careerTitle"><?php echo $exp->value ?></span>
                   <ul>
                     <li class="descList">
-                      <div>Managed to
-import low budget sport equipment to middle-low
-class people. Developed deep relationship with
-forwarding companies responsible for importing
-goods from China. <br>( 2012-Present )
+                      <div>
+                        <?php echo $exp->nested_value ?>
                       </div>
                     </li>
                   </ul>
                 </div>
               </li>
+            <?php endif; ?>
 
+            <?php if($timeFrame != $exp->year): ?>
               <li class="lineStamp">
-                <div>2013</div>
+                <div><?php echo $exp->year; ?></div>
               </li>
+            <?php $timeFrame = $exp->year;
+            endif; ?>  
+      
+            <?php endforeach; ?>
 
-              <li class="singleList">
-                <div>iPlus Internet Marketing Workshop</div>
-              </li>
-
-              <li class="lineStamp">
-                <div>2014</div>
-              </li>
-
-              <li class="singleList">
-                <div>BACAKILAT for Teens</div>
-              </li>
-
-              <li class="lineStamp">
-                <div>2015</div>
-              </li>
-
-              <li class="singleList">
-                <div>Graduated from SMAK 5 BPK Penabur</div>
-              </li>
-
-              <li class="singleList">
-                <div>Enrolled at Diablo Valley College</div>
-              </li>
-
-              <li class="singleList">
-                <div>Rich Dad Poor Dad Real Estate Workshop</div>
-              </li>
-
-              <li class="singleList">
-                <div class="nestedList">&#9670; <span class="careerTitle">Vice President of Logic and Analysis Club</span>
-                  <ul>
-                    <li class="descList">
-                      <div>Founded and supervise the discussions
-happening within the club as well as the club
-activities in contribution to society. Acted as the
-main web developer and design.<br>( February 2016 – December 2016 )</div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <li class="singleList">
-                <div class="nestedList">&#9670; <span class="careerTitle">Computer Lab assistant</span>
-                  <ul>
-                    <li class="descList">
-                      <div>Maintaining the
-conducive environment of the Computer Laboratory
-as well as the well-being of all hardware and
-software in the Computer Laboratory.<br>( August 2016 – Present )</div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <li class="lineStamp">
-                <div>1999</div>
-              </li>
-
-              <li class="singleList">
-                <div class="nestedList">&#9670; <span class="careerTitle">Career Keduaaa</span>
-                  <ul>
-                    <li class="descList">
-                      <div>Tralallala</div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
             </ul>
           </div>
-
-
-
-
       </div>
     </section>
 
 
       <section class="alteringPage2 pageSlide"  id ="slideQuotes2">
 
-        <div class="quotesStrip"><div class="quote" id ="quotes2"><p>Sometimes it is the people no one imagines anything of who do the things that no
-          one can imagine - Alan Turing</p></div></div>
+        <div class="quotesStrip"><div class="quote" id ="quotes2"><p>
+          <?php echo $quotes[1]->value; ?>
+        </p></div></div>
       </section>
     <section class="pageSlide2 pageSlide" id ="slideAbility">
       <div class="pageWrapper">
@@ -210,87 +162,19 @@ software in the Computer Laboratory.<br>( August 2016 – Present )</div>
           <span class="sectionTitle" id= "title2Ability">Ability</span>
         </div>
 
-
-
         <div class="abilityBox">
+        <?php foreach($abilities as $ability): ?>
           <div class="abilityBar">
-            <div class="abText">C++</div>
+            <div class="abText"><?php echo $ability->language ?></div>
             <div class="abilityDiamondIcon">
               <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
             </div>
             <div class="abBar">
-              <div class="abBarInside">
+              <div class="abBarInside" style="width:<?php echo ($ability->value / 100) * 314 ?>px">
               </div>
             </div>
           </div>
-
-          <div class="abilityBar">
-            <div class="abText">C++</div>
-            <div class="abilityDiamondIcon">
-              <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
-            </div>
-            <div class="abBar">
-              <div class="abBarInside">
-              </div>
-            </div>
-          </div>
-
-          <div class="abilityBar">
-            <div class="abText">C++</div>
-            <div class="abilityDiamondIcon">
-              <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
-            </div>
-            <div class="abBar">
-              <div class="abBarInside">
-              </div>
-            </div>
-          </div>
-
-          <div class="abilityBar">
-            <div class="abText">C++</div>
-            <div class="abilityDiamondIcon">
-              <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
-            </div>
-            <div class="abBar">
-              <div class="abBarInside">
-              </div>
-            </div>
-          </div>
-
-          <div class="abilityBar">
-            <div class="abText">C++</div>
-            <div class="abilityDiamondIcon">
-              <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
-            </div>
-            <div class="abBar">
-              <div class="abBarInside">
-              </div>
-            </div>
-          </div>
-
-          <div class="abilityBar">
-            <div class="abText">C++</div>
-            <div class="abilityDiamondIcon">
-              <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
-            </div>
-            <div class="abBar">
-              <div class="abBarInside">
-              </div>
-            </div>
-          </div>
-
-          <div class="abilityBar">
-            <div class="abText">C++</div>
-            <div class="abilityDiamondIcon">
-              <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
-            </div>
-            <div class="abBar">
-              <div class="abBarInside">
-              </div>
-            </div>
-          </div>
-
-
+        <?php endforeach; ?>
 
         </div>
       </div>
@@ -299,8 +183,9 @@ software in the Computer Laboratory.<br>( August 2016 – Present )</div>
 
           <section class="alteringPage3 pageSlide"  id ="slideQuotes1">
 
-            <div class="quotesStrip"><div class="quote" id ="quotes2"><p>Sometimes it is the people no one imagines anything of who do the things that no
-              one can imagine - Alan Turing</p></div></div>
+            <div class="quotesStrip"><div class="quote" id ="quotes2"><p>
+              <?php echo $quotes[2]->value; ?>
+            </p></div></div>
           </section>
 
     <section class="pageSlide3 pageSlide" id = "slidePortfo">
@@ -315,24 +200,14 @@ software in the Computer Laboratory.<br>( August 2016 – Present )</div>
 
         <div class="portfolioWrapper">
           <center>
-          <div class="portfolioItem">
-            <img src="<?php echo base_url() . IMAGES_DIR ?>header.png" width ="100%">
-          </div>
-          <div class="portfolioItem">
-            <img src="<?php echo base_url() . IMAGES_DIR ?>header.png" width ="100%">
-          </div>
-          <div class="portfolioItem">
-            <img src="<?php echo base_url() . IMAGES_DIR ?>header.png" width ="100%">
-          </div>
+          
+          <?php foreach($portfolio as $folio): ?>
+              <button class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->uuid . ".png"?>);" data-target="#newModal" data-toggle="modal" id="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $folio->link; ?>">
+                <h5><?php echo $folio->name ?></h5>
+              </button>
+          <?php endforeach; ?>
           </center>
         </div>
-
-
-
-
-
-
-
       </div>
     </section>
 
@@ -360,6 +235,13 @@ albertputrapurnama@gmail.com</li>
 
   </div>
   </div>
+  <script>
+    $(".portfolioItem").click(function()
+    {
+      var link = $(this).attr("id");
+      $(".modal-body").html('<img src="' + link + '" width="100%">').fadeIn();
+    });
+  </script>
   <script src="<?php echo base_url() . JS_DIR ?>multiple.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>tilt.jquery.js"></script>
   <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->

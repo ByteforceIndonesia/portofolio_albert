@@ -47,44 +47,88 @@
 <?php endif; ?>
 
 <div class="row header">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
+        <h1>Footer</h1>
+    </div>
+    <div class="col-lg-6">
         <h1>Quotes</h1>
     </div>
 </div>
-<?php echo form_open_multipart(); ?>
-<div class="quotes_field row">
-    <div class="col-lg-4">
+<div class="quotes_field row form-group">
+    <div class="col-lg-2">
+    	<label for="quote_one">Email</label>
+    </div>
+    <div class="col-lg-3">
+    	<input type="text" name="email" id="email" class="form-control" value="<?php echo $config[0]->value_1 ?>">
+    </div>
+
+	<div class="col-lg-1"></div>
+
+    <div class="col-lg-2">
     	<label for="quote_one">Quote 1</label>
     </div>
-    <div class="col-lg-8">
-    	<textarea name="quote[]" id="quote_one"></textarea>
+    <div class="col-lg-4">
+    	<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
     </div>
 </div>
 
-<div class="quotes_field row">
-    <div class="col-lg-4">
-    	<label for="quote_two">Quote 2</label>
+
+<div class="quotes_field row form-group">
+    <div class="col-lg-2">
+    	<label for="quote_one">Phone</label>
     </div>
-    <div class="col-lg-8">
-    	<textarea name="quote[]" id="quote_two"></textarea>
+    <div class="col-lg-3">
+    	<input type="text" name="phone" id="phone" class="form-control" value="<?php echo $config[1]->value_1 ?>">
+    </div>
+
+	<div class="col-lg-1"></div>
+
+    <div class="col-lg-2">
+    	<label for="quote_one">Quote 1</label>
+    </div>
+    <div class="col-lg-4">
+    	<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
     </div>
 </div>
 
-<div class="quotes_field row">
-    <div class="col-lg-4">
+<div class="quotes_field row form-group">
+    <div class="col-lg-2">
+    	<label for="quote_one">Instagram</label>
+    </div>
+    <div class="col-lg-3">
+    	<input type="text" name="ig" id="ig" class="form-control" value="<?php echo $config[2]->value_1 ?>">
+    </div>
+
+	<div class="col-lg-1"></div>
+
+	<div class="col-lg-2">
     	<label for="quote_three">Quote 3</label>
     </div>
-    <div class="col-lg-8">
-    	<textarea name="quote[]" id="quote_three"></textarea>
+    <div class="col-lg-4">
+    	<textarea name="quote[]" id="quote_three" class="form-control"></textarea>
     </div>
 </div>
 
+<div class="quotes_field row form-group">
+    <div class="col-lg-2">
+    	<label for="quote_one">Linked In</label>
+    </div>
+    <div class="col-lg-3">
+    	<input type="text" name="linkedin" id="linkedin" class="form-control" value="<?php echo $config[3]->value_1 ?>">
+    </div>
+</div>
+
+<div class="col-lg-1"></div>
+
 <div class="quotes_field row">
-	<div class="col-lg-12">
+	<div class="col-lg-6">
+		<button class="btn btn-primary" id="footerSave">Save</button>
+	</div>
+
+	<div class="col-lg-6">
 		<button class="btn btn-primary" type="button" id="saveQuotes">Save</button>
 	</div>
 </div>
-<?php echo form_close(); ?>
 
 <div class="row header">
     <div class="col-lg-12">
@@ -97,7 +141,7 @@
     	<label for="quote_one">Quote 1</label>
     </div>
     <div class="col-lg-8">
-    	<input type="file" name="quote_one" id="">
+    	<input type="file" name="quote_one" id="" class="form-control-file">
     </div>
 </div>
 
@@ -106,7 +150,7 @@
     	<label for="quote_two">Quote 2</label>
     </div>
     <div class="col-lg-8">
-    	<input type="file" name="quote_two" id="">
+    	<input type="file" name="quote_two" id="" class="form-control-file">
     </div>
 </div>
 
@@ -116,7 +160,7 @@
     	<label for="quote_three">Quote 3</label>
     </div>
     <div class="col-lg-8">
-    	<input type="file" name="quote_three" id="">
+    	<input type="file" name="quote_three" id="" class="form-control-file">
     </div>
 </div>
 
@@ -279,7 +323,7 @@
 		$("#new_portfolio").click(function()
 		{
 			$(".modal-title").html("New Portfolio");
-			$.post("<?php echo base_url('admin/newportfolio') ?>", function(data){
+			$.get("<?php echo base_url('admin/newportfolio') ?>", function(data){
 			    $(".modal-body").html(data).fadeIn();
 			});
 		});
@@ -289,6 +333,30 @@
 			$(".modal-title").html("New Ability");
 			$.post("<?php echo base_url('admin/newability') ?>", function(data){
 			    $(".modal-body").html(data).fadeIn();
+			});
+		});
+
+		$("#footerSave").click(function(e)
+		{	
+			e.preventDefault();
+
+			$.ajax({
+				type: 'post',
+				url: "<?php echo base_url(); ?>admin/changefooter",
+				data: {
+					email: $("#email").val(),
+					phone: $("#phone").val(),
+					ig: $("#ig").val(),
+					linkedin: $("#linkedin").val()
+				},
+				success: function(res)
+				{
+					toggleSuccess();
+				},
+				error: function()
+				{
+					toggleError();
+				}
 			});
 		});
 
@@ -311,6 +379,7 @@
 					toggleError();
 				}
 			});
+
 		});
 
 		$(".delete_ability").click(function(e){

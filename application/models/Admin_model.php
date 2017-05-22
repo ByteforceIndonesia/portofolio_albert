@@ -25,27 +25,32 @@ class Admin_model extends CI_Model
 
 	public function quotesImages ($images)
 	{
-		$config['upload_path']          = './assets/upload/portfolio';
-        $config['allowed_types']        = 'jpg|png|jpeg';
+		$config['upload_path']          = './assets/images';
+        $config['allowed_types']        = 'jpg|jpeg';
         $config['max_size']             = 1000;
         $config['overwrite']			= true;
         
 		$this->load->library('upload', $config);
+
+		$counter = 1;
 
 		foreach($_FILES as $filename => $file)
 		{
 			if($file['name'])
 			{
 				if($file['type'] == 'image/jpg')
-				$config['file_name'] = $filename . ".jpg";
+					$config['file_name'] = $counter . ".jpg";
 				else
-					$config['file_name'] = $filename . ".png";
+					$config['file_name'] = $counter . ".png";
 
 				$this->upload->initialize($config);
 
 				if(!$this->upload->do_upload($filename))
 					return $this->upload->display_errors();
-			}	
+				else
+					$counter++;
+			}else
+				$counter++;
 		}
 
 		return "Success upload images";

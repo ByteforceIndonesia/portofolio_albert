@@ -48,7 +48,6 @@
     {
         loaded += 1;
         totalLoading = loaded / totalImg * 6;
-        console.log(totalLoading);
     }
 
     // loading bar and preload
@@ -96,9 +95,9 @@
         .addTo(controller);
 
 
-        var scene3 = new ScrollMagic.Scene({triggerElement: "#slideQuotes1"});
-        scene3.setClassToggle("#navbarWrapper", "stickNav")
-				.addTo(controller);
+    //     var scene3 = new ScrollMagic.Scene({triggerElement: "#slideQuotes1"});
+    //     scene3.setClassToggle("#navbarWrapper", "stickNav")
+				// .addTo(controller);
 
         var sceneLine = new ScrollMagic.Scene({triggerElement: "#slideCareer"})
             sceneLine.setVelocity(".lineList",

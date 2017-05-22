@@ -52,6 +52,22 @@ class Admin extends MY_Controller {
 		echo "yes";
 	}
 
+	public function editportfoliophoto($uuid = null)
+	{
+		$data['uuid'] = $uuid;
+
+		if($_FILES)
+		{
+			echo '<pre>';
+			print_r($_FILES);
+			echo '</pre>';
+			exit;
+		}else
+		{
+			$this->load->view('admin/editportfoliophoto', $data);
+		}
+	}
+
 	public function newinput($table)
 	{
 		if(!$_POST)

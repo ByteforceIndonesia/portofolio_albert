@@ -260,7 +260,7 @@
 					<td>No</td>
 					<td>Name</td>
 					<td>Link</td>
-					<td>Photo</td>
+					<!-- <td>Photo</td> -->
 					<td>Action</td>
 				</tr>
 			</thead>
@@ -269,8 +269,9 @@
 					<tr>
 						<td><?php echo $portfolio->id ?></td>
 						<td contenteditable id="<?php echo $portfolio->id ?>" class="name editable"><?php echo $portfolio->name ?></td>
-						<td contenteditable id="<?php echo $portfolio->id ?>" class="link editable"><?php echo $portfolio->link ?></td>
-						<td id="<?php echo $portfolio->id ?>" class="photo"><?php echo $portfolio->uuid ?></td>
+						<td class="link editable">
+						<img src="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $portfolio->link ?>" style="width:200px" class="portfolio_image" id="<?php echo $portfolio->id ?>"  data-toggle="modal" data-target="#newModal"></td>
+						<!-- <td id="<?php echo $portfolio->id ?>" class="photo"><?php echo $portfolio->uuid ?></td> -->
 						<td><button class="btn btn-danger delete_portfolio" value="<?php echo $portfolio->id ?>">Delete</button></td>
 					</tr>
 				<?php endforeach; ?>
@@ -332,6 +333,18 @@
 		{
 			$(".modal-title").html("New Ability");
 			$.post("<?php echo base_url('admin/newability') ?>", function(data){
+			    $(".modal-body").html(data).fadeIn();
+			});
+		});
+
+		$('.portfolio_image').click(function()
+		{
+			var uuid = $(this).attr('id');
+
+			console.log(uuid);
+
+			$(".modal-title").html("Edit Portfolio Photo");
+			$.post("<?php echo base_url('admin/editportfoliophoto/1') ?>", function(data){
 			    $(".modal-body").html(data).fadeIn();
 			});
 		});

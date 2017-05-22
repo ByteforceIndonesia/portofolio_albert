@@ -5,7 +5,7 @@
 			
 			<div class="row">
 				<div class="col-lg-6">
-					<img src="<?php echo base_url() . " alt="">
+					<img src="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $uuid?>" alt="">
 				</div>	
 			</div>
 

@@ -270,7 +270,7 @@
 						<td><?php echo $portfolio->id ?></td>
 						<td contenteditable id="<?php echo $portfolio->id ?>" class="name editable"><?php echo $portfolio->name ?></td>
 						<td class="link editable">
-						<img src="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $portfolio->link ?>" style="width:200px" class="portfolio_image" id="<?php echo $portfolio->id ?>"  data-toggle="modal" data-target="#newModal"></td>
+						<img src="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $portfolio->link ?>" style="width:200px" class="portfolio_image" id="<?php echo $portfolio->link ?>"  data-toggle="modal" data-target="#newModal"></td>
 						<!-- <td id="<?php echo $portfolio->id ?>" class="photo"><?php echo $portfolio->uuid ?></td> -->
 						<td><button class="btn btn-danger delete_portfolio" value="<?php echo $portfolio->id ?>">Delete</button></td>
 					</tr>
@@ -340,8 +340,6 @@
 		$('.portfolio_image').click(function()
 		{
 			var uuid = $(this).attr('id');
-
-			console.log(uuid);
 
 			$(".modal-title").html("Edit Portfolio Photo");
 			$.post("<?php echo base_url('admin/editportfoliophoto/1') ?>", function(data){

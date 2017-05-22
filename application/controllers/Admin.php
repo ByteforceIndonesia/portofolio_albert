@@ -49,7 +49,17 @@ class Admin extends MY_Controller {
 
 	public function changefooter ()
 	{
-		echo "yes";
+		$email 		= array('value'	=> $this->input->post('email'));
+		$phone		= array('value'	=> $this->input->post('phone'));
+		$ig 		= array('value'	=> $this->input->post('ig'));
+		$linkedin 	= array('value'	=> $this->input->post('linkedin'));
+
+		$this->crud_model->update('config', $email, array('name' => 'email'));
+		$this->crud_model->update('config', $phone, array('name' => 'phone'));
+		$this->crud_model->update('config', $ig, array('name' => 'ig'));
+		$this->crud_model->update('config', $linkedin, array('name' => 'linkedin'));
+
+		echo 'yes';
 	}
 
 	public function editportfoliophoto($uuid = null)

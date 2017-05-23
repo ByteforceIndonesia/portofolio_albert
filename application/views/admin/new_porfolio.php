@@ -8,7 +8,7 @@
 
 		    <div class="form-group">
 			    <label for="link">Link:</label>
-			    <input type="link" class="form-control" id="link" name="link" required="true">
+			    <input type="file" class="form-control" id="link" name="new_port" required="true">
 		    </div>
 
 		    <button type="submit" class="btn btn-primary">Submit</button>

@@ -39,7 +39,7 @@ class Admin extends MY_Controller {
 
 	public function newportfolio ()
 	{
-		$this->load->view('admin/new_portfolio');
+		$this->load->view('admin/new_porfolio');
 	}
 
 	public function newability ()
@@ -49,10 +49,10 @@ class Admin extends MY_Controller {
 
 	public function changefooter ()
 	{
-		$email 		= array('value'	=> $this->input->post('email'));
-		$phone		= array('value'	=> $this->input->post('phone'));
-		$ig 		= array('value'	=> $this->input->post('ig'));
-		$linkedin 	= array('value'	=> $this->input->post('linkedin'));
+		$email 		= array('value_1'	=> $this->input->post('email'));
+		$phone		= array('value_1'	=> $this->input->post('phone'));
+		$ig 		= array('value_1'	=> $this->input->post('ig'));
+		$linkedin 	= array('value_1'	=> $this->input->post('linkedin'));
 
 		$this->crud_model->update('config', $email, array('name' => 'email'));
 		$this->crud_model->update('config', $phone, array('name' => 'phone'));
@@ -68,10 +68,33 @@ class Admin extends MY_Controller {
 
 		if($_FILES)
 		{
-			echo '<pre>';
-			print_r($_FILES);
-			echo '</pre>';
-			exit;
+			$image_name = $this->input->post('uuid');
+
+			// echo '<pre>';
+			// print_r($_FILES);
+			// echo '</pre>';
+
+			// exit;
+
+			$config['upload_path']          = './assets/images/upload/portfolio';
+	        $config['allowed_types']        = 'png|jpg|jpeg';
+	        $config['max_size']             = 5000;
+	        $config['overwrite']			= true;
+	        $config['file_name']			= $image_name;
+
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if(!$this->upload->do_upload('edit_port'))
+			{
+				$this->session->set_flashdata('message', $this->upload->display_errors());
+				redirect(base_url('admin/webconfig'));
+			}else
+			{
+				$this->session->set_flashdata('message', 'Edit Portfolio Image Success!');
+				redirect(base_url('admin/webconfig'));
+			}
+
 		}else
 		{
 			$this->load->view('admin/editportfoliophoto', $data);
@@ -81,7 +104,10 @@ class Admin extends MY_Controller {
 	public function newinput($table)
 	{
 		if(!$_POST)
-			return;
+		{
+			redirect(base_url('admin/webconfig'));
+			exit;
+		}
 
 		switch($table)
 		{
@@ -98,14 +124,16 @@ class Admin extends MY_Controller {
 				redirect('admin/webconfig');
 			}break;
 
-			case 'porfolio':
+			case 'portfolio':
 			{
 				$uuid = uniqid();
 
+				$file_name = $this->admin_model->uploadPortfolio($_FILES, $uuid);
+
 				$data = array(
 					'uuid'			=> $uuid,
-					'name'			=> $this->input->post('year'),
-					'link' 			=> $this->input->post('value')
+					'name'			=> $this->input->post('name'),
+					'link' 			=> $file_name
 					);
 
 				if($this->admin_model->create_new($table, $data))

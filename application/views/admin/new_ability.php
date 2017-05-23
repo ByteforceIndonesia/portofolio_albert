@@ -3,7 +3,7 @@
 		<?php echo form_open_multipart('admin/newinput/ability') ?>
 			<div class="form-group">
 			    <label for="year">Language:</label>
-			    <input type="number" class="form-control" id="language" name="language" required="true">
+			    <input type="text" class="form-control" id="language" name="language" required="true">
 		    </div>
 
 		    <div class="form-group">

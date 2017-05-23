@@ -23,11 +23,37 @@ class Admin_model extends CI_Model
 		}
 	}
 
+	public function uploadPortfolio($files, $uuid)
+	{
+		if($_FILES)
+		{
+			$config['upload_path']          = './assets/images/upload/portfolio';
+	        $config['allowed_types']        = 'png|jpg|jpeg';
+	        $config['max_size']             = 5000;
+	        $config['overwrite']			= true;
+	        $config['file_name']			= $uuid;
+
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if(!$this->upload->do_upload('new_port'))
+			{
+				$this->session->set_flashdata('message', $this->upload->display_errors());
+				redirect(base_url('admin/webconfig'));
+				exit;
+			}else
+			{
+				$uploaded_data = $this->upload->data();
+				return $uploaded_data['file_name'];
+			}
+		}
+	}
+
 	public function quotesImages ($images)
 	{
 		$config['upload_path']          = './assets/images';
         $config['allowed_types']        = 'jpg|jpeg';
-        $config['max_size']             = 1000;
+        $config['max_size']             = 7000;
         $config['overwrite']			= true;
         
 		$this->load->library('upload', $config);

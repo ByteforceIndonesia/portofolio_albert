@@ -7,23 +7,25 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
 
 <!-- Modal -->
-<div class="modal fade" id="newModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">&nbsp</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        &nbsp
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+<div class="modalWrapper" style="width:100%; height:100%; display:flex; justify-content: center; align-items: center;">
+	<div class="modal fade" id="newModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">&nbsp</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        &nbsp
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </div>
 
 <div class="success hidden">
@@ -342,7 +344,7 @@
 			var uuid = $(this).attr('id');
 
 			$(".modal-title").html("Edit Portfolio Photo");
-			$.post("<?php echo base_url('admin/editportfoliophoto/1') ?>", function(data){
+			$.post("<?php echo base_url('admin/editportfoliophoto/') ?>" + uuid, function(data){
 			    $(".modal-body").html(data).fadeIn();
 			});
 		});

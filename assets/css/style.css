@@ -15,8 +15,12 @@ body{
   padding : 0px;
   height : auto;
   font-family : sans-serif;
-
 }
+
+::-webkit-scrollbar 
+{
+    display:none;
+} 
 
 .quotesSlide {
     min-height: 400px;
@@ -481,7 +485,7 @@ margin-left : 16px;
   display : flex;
   margin : 3px;
   width : 314px;
-  height : 18px;
+  height : 14px;
   background-color : white;
   transform-origin : left;
 
@@ -522,7 +526,7 @@ font-family : code;
   height : 180px;
   box-shadow: 4px 4px 5px rgba(0,0,0,0.2);
   transition : all 0.2s ease-out;
-  background-size: fill;
+  background-size: cover !important;
   justify-content: center;
 }
 .portfolioItem:hover{

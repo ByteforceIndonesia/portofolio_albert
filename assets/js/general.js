@@ -13,6 +13,8 @@
   var loaded = 0;
   var totalImg = images.length;
 
+  var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
 
     $(".lineList").velocity({scaleY : ["0"] },{duration: 0});
     $("#title1Career").velocity({scaleX : ["0"], scaleX : ["0"] },{duration: 0});
@@ -87,6 +89,11 @@
 
             )
         .addTo(controller);
+
+        if(iOS)
+        {
+          $(".quotesStrip").css("background-attachment", "cover !important");
+        }
 
         var scene2 = new ScrollMagic.Scene({triggerElement: "#slideCareer"})
             scene2.setVelocity("#title1Career",

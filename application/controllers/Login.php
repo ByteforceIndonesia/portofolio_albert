@@ -38,7 +38,7 @@ class Login extends MY_Controller {
 
 					$this->session->set_userdata($login);
 
-					redirect(base_url(admin));
+					redirect(base_url('admin'));
 				}else
 				{
 					$this->session->set_flashdata('login_error', 'Wrong Password or Username');

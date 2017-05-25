@@ -32,7 +32,8 @@
     height : 100vh!important;
 -webkit-transition: height 1000000s ease;
 -moz-transition: height 1000000s ease;
--o-transition: height 1000000s ease;transition: height 1000000s ease;
+-o-transition: height 1000000s ease;
+transition: height 1000000s ease;
   }
 
   .wrapper960{
@@ -56,6 +57,26 @@ transition: height 1000000s ease;
 transition: min-height 1000000s ease;
 
     justify-content: center;
+  }
+  .pageSlideFooter
+  {
+    padding-left: 2.5em;
+  }
+
+  .pageWrapper .img
+  {
+    display: none;
+  }
+
+  .portfolioWrapper
+  {
+    text-align: center;
+  }
+
+  .portfolioItem
+  {
+    width:300px;
+    margin:auto;
   }
 
 
@@ -84,8 +105,8 @@ transition: min-height 1000000s ease;
   }
   .abBar{
     float : left;
-    width : 160px;
-    height : 14px;
+    width : 240px;
+    height : 16px;
     border : 1px solid #fff;
 
   }
@@ -107,8 +128,10 @@ transition: min-height 1000000s ease;
     background-color : white!important;
   }
   .mobileNav ul {display:flex;
-  flex-direction: column;
-    float : left;
+  flex-direction: column;
+
+    float : left;
+
     width : 100%;
 
   justify-content: flex-start;
@@ -120,13 +143,14 @@ transition: min-height 1000000s ease;
   }
 
   #linkBurger{
-    float : right;
+    float : right;
+
     margin-top : 20px;
   }
   .abBarInside{
     display : flex;
     margin : 3px;
-    width : 154px;
+    width : 130px;
     height : 8px;
     background-color : white;
     transform-origin : left;
@@ -210,7 +234,8 @@ padding-right : 0px;
   }
   .quotesStrip div p{
     margin-right : 5%;
-    margin-left : 5%;
+    margin-left : 5%;
+
     width : 90%;
   }
 
@@ -218,10 +243,15 @@ padding-right : 0px;
 
   .lineStamp div{
         position : absolute;
-      margin-left : -140px;
+      margin-left : -120px;
       width : 100px;
       text-align : right;
       font-size : 16px;
   }
 
+}
+@media only screen and (max-width: 500px) {
+    .abBar{
+      width : 180px;
+    }
 }

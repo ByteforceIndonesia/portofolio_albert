@@ -170,7 +170,7 @@
               <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="abIconSmall"></object>
             </div>
             <div class="abBar">
-              <div class="abBarInside" style="width:<?php echo ($ability->value / 100) * 314 ?>px">
+              <div class="abBarInside" id="<?php echo $ability->value; ?>">
               </div>
             </div>
           </div>
@@ -199,14 +199,12 @@
         </div>
 
         <div class="portfolioWrapper">
-          <center>
           
           <?php foreach($portfolio as $folio): ?>
               <button class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->uuid . ".png"?>);" data-target="#newModal" data-toggle="modal" id="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $folio->link; ?>">
                 <h5><?php echo $folio->name ?></h5>
               </button>
           <?php endforeach; ?>
-          </center>
         </div>
       </div>
     </section>
@@ -240,6 +238,16 @@ albertputrapurnama@gmail.com</li>
     {
       var link = $(this).attr("id");
       $(".modal-body").html('<img src="' + link + '" width="100%">').fadeIn();
+    });
+
+    $(document).ready(function()
+    {
+        //Ability percentage
+        $(".abBarInside").each(function(){
+            var value = $(this).attr('id');
+            var width = $(this).parent().width();
+            $(this).css("width", (value/100) * width);
+        });
     });
   </script>
   <script src="<?php echo base_url() . JS_DIR ?>multiple.js"></script>

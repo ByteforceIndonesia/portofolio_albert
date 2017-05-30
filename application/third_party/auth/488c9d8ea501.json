@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "albert-putra-purnamas-website",
+  "private_key_id": "488c9d8ea5013c1852cc2ad2c201671d03f43c09",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuN+lBz9A7kqDx\nl6i5IrIGYHuWx+vSNlfYzYfj/20B2OwXfLOJudmufqj7akgbtyOXwm9ffqPlu9e8\nwl7ydZmVkSKBws5xnTsYlcx++GtjA9MZFKj08I4wWr32rioReojlPbjb1ULE/P6R\nsa7UstDYR9M66dRKalrFjk6EpL9g53C3spBHCE6GsymMmnV4Pn69gMogj+RTeAif\nIq8LU/kW3kPuUn1NZiPMfNdmhaHJ5E3EfRdQEnVa9NkH3aRRmE/Bn1AFCI+FuaIu\nFuQekByO1gI2PmS4D+Uo3jjMO4VrU6D01nk9Eten+HwuUj115Giez8VucbGnOzyd\n/1LtzQXPAgMBAAECggEAHf1m7FrLJC4iAWSTeUclMR7Tt4lzqUyMg7ghr9hM2fgO\n8B4Zw9gXxkdsbFcH0amNeXbReDVTHl1fDlHBSWiABzSkJYU0x28C+MD0oli+F53V\nbWhWi0+LknxUXg3uFPMsdJXS6BjGdSV95vOYvmmHtOtsS6Rr1GGJfZ95GbFIdnQn\nzK0yQCtZFaNCQbjl0YZtrIvVXLMxa4IcX2cxrv1L0fRPhWNbB2ZnCMAz3OW2PYV1\n9sGrjze1wH9zsCus2FlDcZfPzw69IXTnWkaH5kDCQo9n0xT++V3k95zqsFi4SyV9\nkjyhQyEpGGrqPO+q7CI+ccA47aB8t/XEENBtFA1zeQKBgQDkx96DgUy1ZoFhMQ6O\nPW7kUVglIX/vM6otu/jhKp4VL597hgLcGjXGealz/VvRsKxHc1F/+qlpMkwfcMTa\nP9/OtaWVVymjXvjsNUPgaz6D39tZrUs7LKEJ8Mg1ZWXx1r3Sv8bzg8C0C4EtzGJV\nI+aTJm6dAUnIPdngksIVio61uQKBgQDC8jMhj7NsWs++gnuEyDu8zS2mcqd7EhYK\ngZjyn5LS9UEtap35y45YU+vByN1/Gvv4eFKDGzL+7LanVOstkrvVS02Z5GYMlc6F\n85uV0bvZ++Dtnv/M60DIsN3sUWR0HvdL++UWm0dDt/fxlkF3QB4oKPnzV4J3v58m\nOlwAUu1bxwKBgGJq/PUzjW1IAIZwFSPpl6fOuo2WoLOlVSNBhupObB0PFJuN5fML\nr3CHa/dC2doWF7bRDBFzIqfnhEnOOFDvQ3doOyhIi9gFBi6PJ3kGiakvhuxIGWIG\na+yb0XTu/vEPgS+FYq/lUOPjQxoRn4ei3xEUamdOY5Ap023BlI6xwXy5AoGAUG1Y\nBvqgTY3Rs4llqExryOLleIxI6I93pHH/Renryzj/4NrhvhLq8Sn+U/6o0y2w0rvh\nXtGz4lSKrtJsDGtDLyZYJ6uBJqQPhlgQ0mirFa3DCIXWhxZvrdy6UirqRLYZ1LFh\nvEfnyNp3YqZY7/f1+R+er3RlET5vTHg7SK7t2jUCgYEAuKkT0z2hLBpd6I4kRMJJ\ndbk5zr8VmSGUg7f/JdXocUzVsTiRLQJIsU4LRlqcgyh9KrpRtqNw4k5He6q/dGVd\nTWdbNISB6V9g0BMfoULHjLuIUjZs6jVKuk9D4hz+hczGz7OcrQZDMl+WIO9Ed8Ac\n+0/Yi6PXK5uFIgKz8zMS2qo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "appweb@albert-putra-purnamas-website.iam.gserviceaccount.com",
+  "client_id": "117716371229101177281",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/appweb%40albert-putra-purnamas-website.iam.gserviceaccount.com"
+}

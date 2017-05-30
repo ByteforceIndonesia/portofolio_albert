@@ -2,31 +2,11 @@
 <!-- <script>tinymce.init({ selector:'textarea' });</script> -->
 
 <!-- data tables -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.15/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css"/>
  
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 
-<!-- Modal -->
-<div class="modalWrapper" style="width:100%; height:100%; display:flex; justify-content: center; align-items: center;">
-	<div class="modal fade" id="newModal">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title">&nbsp</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        &nbsp
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-</div>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
 
 <div class="success hidden">
 	<div class="alert alert-success">
@@ -48,142 +28,109 @@
 	</div>
 <?php endif; ?>
 
-<div class="row header">
-    <div class="col-lg-6">
-        <h1>Footer</h1>
-    </div>
-    <div class="col-lg-6">
-        <h1>Quotes</h1>
-    </div>
-</div>
-<div class="quotes_field row form-group">
-    <div class="col-lg-2">
-    	<label for="quote_one">Email</label>
-    </div>
-    <div class="col-lg-3">
-    	<input type="text" name="email" id="email" class="form-control" value="<?php echo $config[0]->value_1 ?>">
-    </div>
-
-	<div class="col-lg-1"></div>
-
-    <div class="col-lg-2">
-    	<label for="quote_one">Quote 1</label>
-    </div>
-    <div class="col-lg-4">
-    	<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
-    </div>
-</div>
-
-
-<div class="quotes_field row form-group">
-    <div class="col-lg-2">
-    	<label for="quote_one">Phone</label>
-    </div>
-    <div class="col-lg-3">
-    	<input type="text" name="phone" id="phone" class="form-control" value="<?php echo $config[1]->value_1 ?>">
-    </div>
-
-	<div class="col-lg-1"></div>
-
-    <div class="col-lg-2">
-    	<label for="quote_one">Quote 1</label>
-    </div>
-    <div class="col-lg-4">
-    	<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
-    </div>
-</div>
-
-<div class="quotes_field row form-group">
-    <div class="col-lg-2">
-    	<label for="quote_one">Instagram</label>
-    </div>
-    <div class="col-lg-3">
-    	<input type="text" name="ig" id="ig" class="form-control" value="<?php echo $config[2]->value_1 ?>">
-    </div>
-
-	<div class="col-lg-1"></div>
-
-	<div class="col-lg-2">
-    	<label for="quote_three">Quote 3</label>
-    </div>
-    <div class="col-lg-4">
-    	<textarea name="quote[]" id="quote_three" class="form-control"></textarea>
-    </div>
-</div>
-
-<div class="quotes_field row form-group">
-    <div class="col-lg-2">
-    	<label for="quote_one">Linked In</label>
-    </div>
-    <div class="col-lg-3">
-    	<input type="text" name="linkedin" id="linkedin" class="form-control" value="<?php echo $config[3]->value_1 ?>">
-    </div>
-</div>
-
-<div class="col-lg-1"></div>
-
-<div class="quotes_field row">
-	<div class="col-lg-6">
-		<button class="btn btn-primary" id="footerSave">Save</button>
+<div class="row">
+	<div class="col-lg-4">
+		<div class="card">
+			<div class="card-header">
+				Quotes
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">
+					<div class="form-group" style="width:100%">
+						<label for="quote_one">First Quote</label>
+						<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-group" style="width:100%">
+						<label for="quote_two">Second Quote</label>
+						<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-group" style="width:100%">
+						<label for="quote_two">Third Quote</label>
+						<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
+					</div>
+				</li>
+			</ul>
+			<div class="card-block">
+				<button class="btn btn-primary float-lg-right" type="button" id="saveQuotes">Save</button>
+			</div>
+		</div>
 	</div>
+	<div class="col-lg-4">
+		<div class="card">
+			<div class="card-header">
+				Footer
+			</div>
+			<div class="card-block">
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" id="email" class="form-control" value="<?php echo $config[0]->value_1 ?>">
+				</div>
+				<div class="form-group">
+					<label for="phone"></label>
+					<input type="text" name="phone" id="phone" class="form-control" value="<?php echo $config[1]->value_1 ?>">
+				</div>
+				<div class="form-group">
+					<label for="ig">Instagram</label>
+					<input type="text" name="ig" id="ig" class="form-control" value="<?php echo $config[2]->value_1 ?>">
+				</div>
+				<div class="form-group">
+					<label for="linkedin">Linked In</label>
+					<input type="text" name="linkedin" id="linkedin" class="form-control" value="<?php echo $config[3]->value_1 ?>">
+				</div>
 
-	<div class="col-lg-6">
-		<button class="btn btn-primary" type="button" id="saveQuotes">Save</button>
+				<button class="btn btn-primary float-lg-right" type="button" id="saveQuotes">Save</button>
+			</div>
+		</div>
 	</div>
-</div>
-
-<div class="row header">
-    <div class="col-lg-12">
-        <h1>Quotes Background</h1>
-    </div>
-</div>
-<?php echo form_open_multipart('admin/imageupload/quotes'); ?>
-<div class="quotes_field row">
-    <div class="col-lg-4">
-    	<label for="quote_one">Quote 1</label>
-    </div>
-    <div class="col-lg-8">
-    	<input type="file" name="quote_one" id="" class="form-control-file">
-    </div>
-</div>
-
-<div class="quotes_field row">
-    <div class="col-lg-4">
-    	<label for="quote_two">Quote 2</label>
-    </div>
-    <div class="col-lg-8">
-    	<input type="file" name="quote_two" id="" class="form-control-file">
-    </div>
-</div>
-
-
-<div class="quotes_field row">
-    <div class="col-lg-4">
-    	<label for="quote_three">Quote 3</label>
-    </div>
-    <div class="col-lg-8">
-    	<input type="file" name="quote_three" id="" class="form-control-file">
-    </div>
-</div>
-
-<div class="quotes_field row">
-	<div class="col-lg-12">
-		<button class="btn btn-primary">Save</button>
+	<div class="col-lg-4">
+		<div class="card">
+		<?php echo form_open_multipart('admin/imageupload/quotes'); ?>
+			<div class="card-header">
+				Quotes Background
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">
+					<div class="form-group">
+						<label for="quote_one">First Quote</label>
+						<input type="file" name="quote_one" id="" class="form-control-file">
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-group">
+						<label for="quote_two">Second Quote</label>
+						<input type="file" name="quote_two" id="" class="form-control-file">
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-group">
+						<label for="quote_three">Third Quote</label>
+    					<input type="file" name="quote_three" id="" class="form-control-file">
+					</div>
+				</li>
+			</ul>
+			<div class="card-block">
+				<button class="btn btn-primary float-lg-right">Save</button>
+			</div>
+		<?php echo form_close(); ?>
+		</div>
 	</div>
 </div>
-<?php echo form_close() ?>
 
 <div class="row header">
-    <div class="col-lg-2">
+    <div class="col-lg-3">
         <h1>Experiences</h1>
     </div>
-    <div class="col-lg-10">
+    <div class="col-lg-9">
     	<button class="btn btn-primary" id="new_experience" data-toggle="modal" data-target="#newModal">Create New</button>
     </div>
 </div>
 <?php echo form_open() ?>
 <div class="row quotes_field">
-	<div class="col-lg-12">
+	<div class="col-lg-12 table-mobile">
 		<table class="table" id="experience_table">
 			<thead>
 				<tr>
@@ -220,7 +167,7 @@
 </div>
 <?php echo form_open() ?>
 <div class="row quotes_field">
-	<div class="col-lg-12">
+	<div class="col-lg-12 table-mobile">
 		<table class="table" id="ability_table">
 			<thead>
 				<tr>
@@ -255,7 +202,7 @@
 </div>
 <?php echo form_open() ?>
 <div class="row quotes_field">
-	<div class="col-lg-12">
+	<div class="col-lg-12 table-mobile">
 		<table class="table" id="portfolio_table">
 			<thead>
 				<tr>

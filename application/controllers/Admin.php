@@ -8,6 +8,8 @@ class Admin extends MY_Controller {
 		//Inherit from parent
 		parent::__construct();
 
+		$this->load->model('analytics_model');
+
 		//Check if already signed in
 		if(is_null($this->session->userdata('loggedIn')))
 		{
@@ -17,6 +19,11 @@ class Admin extends MY_Controller {
 
 	public function index()
 	{
+		$this->analytics_model->init();
+		$this->analytics_model->getFirstProfileId();
+		$this->data['analytics_realtime'] = $this->analytics_model->getRealtimeVisitor();
+		$this->data['analytics']		= $this->analytics_model->getResults();
+		$this->data['page']				= "Dashboard";
 		$this->template->load('../admin/template/template', 'admin/home', $this->data);
 	}
 
@@ -28,8 +35,14 @@ class Admin extends MY_Controller {
 		$this->data['portfolios']		= $this->admin_model->get('portfolio');
 		$this->data['message']			= $this->session->flashdata('message');
 		$this->data['config']			= $this->admin_model->get('config');
+		$this->data['page']				= "Web Configuration";
 
 		$this->template->load('../admin/template/template', 'admin/webconfig', $this->data);
+	}
+
+	public function getRealTimeVisitor ()
+	{
+		echo "apel";
 	}
 
 	public function newexperience ()

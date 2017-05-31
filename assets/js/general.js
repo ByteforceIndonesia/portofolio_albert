@@ -92,7 +92,7 @@
 
         if(iOS)
         {
-          $(".quotesStrip").css("background-attachment", "cover !important");
+          $(".multiple-mobile").css("background-attachment", "scroll !important");
         }
 
         var scene2 = new ScrollMagic.Scene({triggerElement: "#slideCareer"})

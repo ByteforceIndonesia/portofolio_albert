@@ -10,6 +10,9 @@ class Admin extends MY_Controller {
 
 		$this->load->model('analytics_model');
 
+		$this->analytics_model->init();
+		$this->analytics_model->getFirstProfileId();
+
 		//Check if already signed in
 		if(is_null($this->session->userdata('loggedIn')))
 		{
@@ -19,10 +22,12 @@ class Admin extends MY_Controller {
 
 	public function index()
 	{
-		$this->analytics_model->init();
-		$this->analytics_model->getFirstProfileId();
 		$this->data['analytics_realtime'] = $this->analytics_model->getRealtimeVisitor();
 		$this->data['analytics']		= $this->analytics_model->getResults();
+		$this->data['analytics_chart']	= $this->analytics_model->getChart();
+		$this->data['countries']		= $this->analytics_model->getCountries();
+		$this->data['unique']			= $this->analytics_model->getUniqueVisitor();
+		$this->data['returning']		= $this->analytics_model->getReturningVisitor();
 		$this->data['page']				= "Dashboard";
 		$this->template->load('../admin/template/template', 'admin/home', $this->data);
 	}
@@ -42,7 +47,7 @@ class Admin extends MY_Controller {
 
 	public function getRealTimeVisitor ()
 	{
-		echo "apel";
+		echo $this->analytics_model->getRealtimeVisitor();
 	}
 
 	public function newexperience ()

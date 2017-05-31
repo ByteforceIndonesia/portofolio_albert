@@ -19,7 +19,7 @@ class Analytics_model extends CI_Model
 		$key_file_location = APPPATH . "third_party/auth/488c9d8ea501.json"; 
 
 		$client = new Google_Client();
-		$client->setApplicationName("ApplicationName");
+		$client->setApplicationName("Albert's Website");
 		$client->setAuthConfig($key_file_location);
   		$client->setScopes(['https://www.googleapis.com/auth/analytics.readonly']);
 		
@@ -72,6 +72,66 @@ class Analytics_model extends CI_Model
 	       'today',
 	       'ga:sessions')->totalsForAllResults['ga:sessions'];
 		
+	}
+
+	function getChart()
+	{
+		$startDate = ['7daysAgo', '14daysAgo', '21daysAgo', '28daysAgo', '35daysAgo'];
+   	 	$endDate = ['today', '7daysAgo', '14daysAgo', '21daysAgo', '28daysAgo'];
+
+   	 	$result = array();
+
+   	 	for($i = 0; $i<5; $i++)
+   	 	{
+   	 		$return[$i] = $this->analytics->data_ga->get(
+   	 			'ga:' . $this->profile_id,
+   	 			$startDate[$i],
+   	 			$endDate[$i],
+   	 			'ga:sessions'
+   	 			)->totalsForAllResults['ga:sessions'];
+   	 	}
+
+		return implode(',', $return);
+	}
+
+	function getCountries()
+	{
+		$query = $this->analytics->data_ga->get(
+			'ga:' . $this->profile_id,
+			'30daysAgo',
+			'today',
+			'ga:sessions',
+			array('dimensions' => 'ga:country')
+			)->rows;
+
+		$countryName = array();
+		$countryCount = array();
+
+		foreach($query as $country)
+		{
+			array_push($countryName, "'" . $country[0] . "'");
+			array_push($countryCount, $country[1]);
+		}
+
+		return array($countryName, $countryCount);
+	}
+
+	function getReturningVisitor ()
+	{
+		return $this->analytics->data_ga->get(
+	       'ga:' . $this->profile_id,
+	       '7daysAgo',
+	       'today',
+	       'ga:visits')->rows;
+	}
+
+	function getUniqueVisitor()
+	{
+		return $this->analytics->data_ga->get(
+	       'ga:' . $this->profile_id,
+	       '7daysAgo',
+	       'today',
+	       'ga:visitors')->rows;
 	}
 
 	function getRealtimeVisitor ()

@@ -28,6 +28,10 @@
 	</div>
 <?php endif; ?>
 
+<div class="row" id="pagedet">
+	<h1><?php echo $page ?></h1>
+</div>
+
 <div class="row">
 	<div class="col-lg-4">
 		<div class="card">

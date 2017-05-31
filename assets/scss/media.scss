@@ -5,9 +5,14 @@
 
 @media screen and (max-width:768px)
 {
+	#pagedet
+	{
+		display: block;
+	}
+
 	#topheader
 	{
-		height: 7vh;
+		height:7vh;
 
 		.byteforce-logo
 		{
@@ -38,6 +43,7 @@
 	{
 		width:100%;
 		overflow-x: hidden;
+		margin-top:7vh;
 
 		-webkit-box-shadow: -3px 0px 28px 3px rgba(0,0,0,1);
 		-moz-box-shadow: -3px 0px 28px 3px rgba(0,0,0,1);
@@ -52,6 +58,8 @@
 
     	#header
     	{
+    		margin-top: 7vh;
+    		
     		.side-bar-toggle
     		{
     			display: none;
@@ -94,6 +102,11 @@
 	#topheader
 	{
 		height: 10vh;
+	}
+
+	#body
+	{
+		margin-top: 10vh;
 	}
 
 	#header

@@ -88,12 +88,6 @@ class Admin extends MY_Controller {
 		{
 			$image_name = $this->input->post('uuid');
 
-			// echo '<pre>';
-			// print_r($_FILES);
-			// echo '</pre>';
-
-			// exit;
-
 			$config['upload_path']          = './assets/images/upload/portfolio';
 	        $config['allowed_types']        = 'png|jpg|jpeg';
 	        $config['max_size']             = 5000;

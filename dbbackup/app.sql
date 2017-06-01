@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 22, 2017 at 09:37 AM
+-- Generation Time: Jun 01, 2017 at 04:35 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
@@ -125,7 +125,7 @@ CREATE TABLE `portfolio` (
 --
 
 INSERT INTO `portfolio` (`id`, `uuid`, `name`, `link`) VALUES
-(1, '1', 'test', '1.png');
+(2, '592ee74ba7777', 'Test2', '592ee74ba7777.jpg');
 
 -- --------------------------------------------------------
 
@@ -215,7 +215,7 @@ ALTER TABLE `experience`
 -- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `quotes`
 --

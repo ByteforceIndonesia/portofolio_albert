@@ -212,7 +212,7 @@
         <div class="portfolioWrapper">
           
           <?php foreach($portfolio as $folio): ?>
-              <button class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->uuid . ".png"?>);" data-target="#newModal" data-toggle="modal" id="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $folio->link; ?>">
+              <button class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->link; ?>);" data-target="#newModal" data-toggle="modal" id="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $folio->link; ?>">
                 <h5><?php echo $folio->name ?></h5>
               </button>
           <?php endforeach; ?>

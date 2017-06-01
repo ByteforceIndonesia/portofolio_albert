@@ -91,6 +91,7 @@ body{
   flex-direction: column;
   background-image : url('../images/3.jpg');
   background-size : cover;
+  height:auto;
 
 }
 
@@ -517,8 +518,7 @@ font-family : code;
 }
 .portfolioItem{
   overflow: hidden;
-  display: flex;
-  float:left;
+  display: block;
   border:0;
   margin-left: 1em;
   margin-top: 1em;
@@ -529,6 +529,13 @@ font-family : code;
   background-size: cover !important;
   justify-content: center;
 }
+
+.folio
+{
+  margin-top:1em;
+  margin-bottom: 1em;
+}
+
 .portfolioItem:hover{
   box-shadow: 8px 8px 5px rgba(0,0,0,0.2);
   transform:scale(1.01)translateX(-3px)translateY(-3px);

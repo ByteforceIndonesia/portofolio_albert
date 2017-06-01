@@ -57,6 +57,7 @@ class Admin_model extends CI_Model
         $config['overwrite']			= true;
         
 		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
 
 		$counter = 1;
 
@@ -64,7 +65,7 @@ class Admin_model extends CI_Model
 		{
 			if($file['name'])
 			{
-				if($file['type'] == 'image/jpg')
+				if($file['type'] == 'image/jpg' || $file['type'] == 'image/jpeg')
 					$config['file_name'] = $counter . ".jpg";
 				else
 					$config['file_name'] = $counter . ".png";
@@ -72,7 +73,9 @@ class Admin_model extends CI_Model
 				$this->upload->initialize($config);
 
 				if(!$this->upload->do_upload($filename))
+				{
 					return $this->upload->display_errors();
+				}
 				else
 					$counter++;
 			}else

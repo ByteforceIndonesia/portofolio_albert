@@ -8,6 +8,8 @@
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
 
+<script src="<?php echo base_url() . JS_DIR . 'bootstrap-slider.min.js' ?>"></script>
+
 <div class="success hidden">
 	<div class="alert alert-success">
 		<span>Success edit field!</span>

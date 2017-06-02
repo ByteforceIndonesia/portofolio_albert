@@ -9,6 +9,14 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
 
 <script src="<?php echo base_url() . JS_DIR . 'bootstrap-slider.min.js' ?>"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css">
+
+<style>
+	#ex1Slider .slider-selection {
+		background: #BABABA;
+	}
+</style>
+
 
 <div class="success hidden">
 	<div class="alert alert-success">
@@ -44,19 +52,19 @@
 				<li class="list-group-item">
 					<div class="form-group" style="width:100%">
 						<label for="quote_one">First Quote</label>
-						<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
+						<textarea name="quote[]" id="quote_one" class="form-control"><?php echo $quotes[0]->value ?></textarea>
 					</div>
 				</li>
 				<li class="list-group-item">
 					<div class="form-group" style="width:100%">
 						<label for="quote_two">Second Quote</label>
-						<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
+						<textarea name="quote[]" id="quote_one" class="form-control"><?php echo $quotes[1]->value ?></textarea>
 					</div>
 				</li>
 				<li class="list-group-item">
 					<div class="form-group" style="width:100%">
 						<label for="quote_two">Third Quote</label>
-						<textarea name="quote[]" id="quote_one" class="form-control"></textarea>
+						<textarea name="quote[]" id="quote_one" class="form-control"><?php echo $quotes[2]->value ?></textarea>
 					</div>
 				</li>
 			</ul>
@@ -118,10 +126,10 @@
 					</div>
 				</li>
 			</ul>
-			<div class="card-block">
+			<div class="card-block" style="height:75px;">
 				<button class="btn btn-primary float-lg-right">Save</button>
+				<?php echo form_close(); ?>
 			</div>
-		<?php echo form_close(); ?>
 		</div>
 	</div>
 </div>
@@ -188,7 +196,9 @@
 					<tr>
 						<td><?php echo $ability->id ?></td>
 						<td contenteditable id="<?php echo $ability->id ?>" class="language editable"><?php echo $ability->language ?></td>
-						<td contenteditable id="<?php echo $ability->id ?>" class="value_ability editable"><?php echo $ability->value ?></td>
+						<td class="value_ability">
+							<input id="abilityValue" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="5" data-slider-value="<?php echo $ability->value ?>" class="abilityVal" data-ability-value="<?php echo $ability->id ?>">
+						</td>
 						<td><button class="btn btn-danger delete_ability" value="<?php echo $ability->id ?>">Delete</button></td>
 					</tr>
 				<?php endforeach; ?>
@@ -226,7 +236,6 @@
 						<td contenteditable id="<?php echo $portfolio->id ?>" class="name editable"><?php echo $portfolio->name ?></td>
 						<td class="link editable">
 						<img src="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $portfolio->link ?>" style="width:200px" class="portfolio_image" id="<?php echo $portfolio->link ?>"  data-toggle="modal" data-target="#newModal"></td>
-						<!-- <td id="<?php echo $portfolio->id ?>" class="photo"><?php echo $portfolio->uuid ?></td> -->
 						<td><button class="btn btn-danger delete_portfolio" value="<?php echo $portfolio->id ?>">Delete</button></td>
 					</tr>
 				<?php endforeach; ?>
@@ -243,6 +252,27 @@
 		$("#experience_table").DataTable();
 		$("#ability_table").DataTable();
 		$("#portfolio_table").DataTable();
+
+		$('.abilityVal').slider().on('slideStop', function(e)
+		{
+			var value = $(this).data('slider').getValue();
+			var id = $(this).attr('data-ability-value');
+
+			$.ajax({
+				type:'post',
+				url: "<?php echo base_url('admin/edit/ability/value'); ?>",
+				data: {id:id, value: value},
+				success: function (res)
+				{
+					toggleSuccess();
+				},
+				error: function()
+				{
+					toggleError();
+				}
+			});
+		});
+
 
 		function toggleError ()
 		{

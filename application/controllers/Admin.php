@@ -182,21 +182,31 @@ class Admin extends MY_Controller {
 			echo "Success"; 
 	}
 
-	public function edit($table)
+	public function edit($table, $value = null)
 	{
 		if(!$_POST)
 			return false;
 
-		$data = array (
+		if($value && $table == "ability")
+		{
+			$data = array('value' => $this->input->post('value'));
+			$where = array ('id' => $this->input->post('id'));
+
+			if($this->admin_model->edit($table,$data, $where))
+				echo 'Success!';
+		}else
+		{
+			$data = array (
 			$this->input->post('field') => $this->input->post('value')
 			);
 
-		$where = array(
-			'id' => $this->input->post('id')
-			);
+			$where = array(
+				'id' => $this->input->post('id')
+				);
 
-		if($this->admin_model->edit($table, $data, $where))
-			echo "Success!";
+			if($this->admin_model->edit($table, $data, $where))
+				echo "Success!";
+		}
 	}
 
 	public function delete($table)

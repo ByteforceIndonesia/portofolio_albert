@@ -13,6 +13,7 @@
   var loaded = 0;
   var totalImg = images.length;
 
+
   var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
 
@@ -35,14 +36,16 @@
     $(".abilityDiamondIcon").velocity({opacity : "0" },{duration: 0});
     $(".abText").velocity({opacity : "0" },{duration: 0});
     $(".abBarInside").velocity({scaleX : "0" },{duration: 0});
+    $("#wrapperContent").css("overflow", "hidden");
     $("body").css("overflow", "hidden");
+
 
 
     for(var z = 0; z < images.length; z++)
     {
         var img = new Image ();
-        img.onload = imgLoaded;
-        img.onerror = imgLoaded;
+        img.onload = imgLoaded();
+        img.onerror = imgLoaded();
         img.src = images[z].src;
     }
 
@@ -74,6 +77,7 @@
       $("#slidePreload").velocity({backgroundColorAlpha : ["0",[.04,.39,.41,.97]]},{duration: 600, delay : 400, easing : [.73,0,.39,.99]});
 
       $("#navbarWrapper").velocity({translateY : [["0%", "-100%"],[.73,0,.39,.99]]},{duration: 600, delay : 400, easing : [.73,0,.39,.99]});
+      $("#wrapperContent").css("overflow-y", "scroll");
       $("body").css("overflow-y", "scroll");
       // KENTANG AYEN WKWK
       $("#navbarWrapper").css("z-index", "100");

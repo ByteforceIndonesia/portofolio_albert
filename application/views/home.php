@@ -83,19 +83,21 @@
 
     <div class="wrapper960">
       <div class="pageHeader-title" id="phTitle">
-        <embed src="<?php echo base_url() . IMAGES_DIR ?>logoW.svg" class="phLogo">
+        <embed src="<?php echo base_url() . IMAGES_DIR ?>logoW.svg" class="phLogo img">
 
         <center>
+        <!-- <canvas id="loadingBar" width="300" height="100"></canvas> -->
           <div class="pageHeader-preloader" id="phPreloader">
-            <div id="preloadContent"></div>
+            <div id="preloadContent">
+            </div>
           </div>
         </center>
 
       </div>
         <div class="imageBlock1" id="slide1People" >
-          <img src="<?php echo base_url() . IMAGES_DIR ?>appbesar2.png" width ="100%">
+          <img src="<?php echo base_url() . IMAGES_DIR ?>appbesar2.png" width ="100%" class="img">
         </div>
-        <div class="imageBlock2" id="slide1Logo"><embed src="<?php echo base_url() . IMAGES_DIR ?>logo.svg" class="phLogo"></div>
+        <div class="imageBlock2" id="slide1Logo"><embed src="<?php echo base_url() . IMAGES_DIR ?>logo.svg" class="phLogo imh"></divg
 
     </div>
 

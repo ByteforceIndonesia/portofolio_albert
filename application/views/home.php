@@ -212,7 +212,7 @@
         </div>
 
         <div class="portfolioWrapper">
-          <div class="row">
+          <div class="row" style="width:100%; margin:0;">
           <?php foreach($portfolio as $folio): ?>
             <div class="col-lg-4 col-md-6 folio">
               <button class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->link; ?>);" data-target="#newModal" data-toggle="modal" id="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $folio->link; ?>">

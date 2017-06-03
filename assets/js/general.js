@@ -96,7 +96,7 @@
 
         if(iOS)
         {
-          $(".multiple-mobile").css("background-attachment", "scroll !important");
+          $(".multiple-mobile").css("display", "none");
         }
 
         var scene2 = new ScrollMagic.Scene({triggerElement: "#slideCareer"})

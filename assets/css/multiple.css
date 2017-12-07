@@ -1,6 +1,6 @@
 .multiple-desktop {
   background-attachment: fixed;
-  background-position: center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -31,7 +31,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  overflow: hidden;
+  overflow: hidden;
   /* old browsers */
   clip: rect(0 auto auto 0);
   clip: rect(0, auto, auto, 0);
@@ -57,6 +57,6 @@
   left: 0;
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;
   content: '';
 }

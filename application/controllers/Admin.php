@@ -41,9 +41,93 @@ class Admin extends MY_Controller {
 		$this->data['message']			= $this->session->flashdata('message');
 		$this->data['config']			= $this->admin_model->get('config');
 		$this->data['page']				= "Web Configuration";
+		$this->data['articles']         = $this->ArticleModel->all();
 
 		$this->template->load('../admin/template/template', 'admin/webconfig', $this->data);
 	}
+
+	function newarticle()
+    {
+        if(!$_POST)
+            $this->load->view('admin/new_article');
+        else {
+
+            $title = $this->input->post('title');
+            $content = $this->input->post('content');
+
+            $article = new ArticleModel();
+
+            $article->title = $title;
+            $article->content = $content;
+
+            $config['upload_path']          = './assets/images/upload/articles';
+            $config['allowed_types']        = 'png|jpg|jpeg|PNG|JPG|JPEG';
+            $config['max_size']             = 5000;
+            $config['overwrite']			= true;
+            $config['file_name']			= time() . '.jpg';
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+
+            if(!$this->upload->do_upload('new_port'))
+            {
+                $this->session->set_flashdata('message', $this->upload->display_errors());
+                redirect(base_url('admin/webconfig'));
+            }else
+            {
+                $article->files = $config['file_name'];
+                $article->save();
+
+                $this->session->set_flashdata('message', 'Adding new article Success!');
+                redirect(base_url('admin/webconfig'));
+            }
+        }
+    }
+
+    function editarticle()
+    {
+        if(!$_POST) {
+            $id = $this->input->get('id');
+            $article = $this->ArticleModel->find($id);
+            $this->load->view('admin/edit_article', ['article' => $article]);
+        }
+        else {
+
+            $id = $this->input->post('id');
+            $title = $this->input->post('title');
+            $content = $this->input->post('content');
+
+            $article = new ArticleModel();
+            $article->find($id);
+
+            $article->title = $title;
+            $article->content = $content;
+
+            if(!empty($_FILES['name'])) {
+                $config['upload_path'] = './assets/images/upload/articles';
+                $config['allowed_types'] = 'jpg|jpeg|JPG|JPEG';
+                $config['max_size'] = 5000;
+                $config['overwrite'] = true;
+                $config['file_name'] = $this->files;
+
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+                if (!$this->upload->do_upload('new_port')) {
+                    $this->session->set_flashdata('message', $this->upload->display_errors());
+                    redirect(base_url('admin/webconfig'));
+                } else {
+                    $article->save();
+                    $this->session->set_flashdata('message', 'Editing article success!');
+                    redirect(base_url('admin/webconfig'));
+                }
+            }else {
+                $article->save();
+                $this->session->set_flashdata('message', 'Editing article success!');
+                redirect(base_url('admin/webconfig'));
+            }
+        }
+    }
 
 	public function getRealTimeVisitor ()
 	{
@@ -235,6 +319,7 @@ class Admin extends MY_Controller {
 			}
 		}
 	}
+
 
 	public function logout()
 	{

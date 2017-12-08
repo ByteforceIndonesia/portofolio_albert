@@ -245,9 +245,79 @@
 </div>
 <?php echo form_close() ?>
 
+<div class="row header">
+    <div class="col-lg-2">
+        <h1>Article</h1>
+    </div>
+    <div class="col-lg-10">
+        <button class="btn btn-primary" id="new_article" data-toggle="modal" data-target="#newModal">Create New</button>
+    </div>
+</div>
+<?php echo form_open() ?>
+<div class="row quotes_field">
+    <div class="col-lg-12 table-mobile">
+        <table class="table" id="portfolio_table">
+            <thead>
+            <tr>
+                <td>No</td>
+                <td>Title</td>
+                <td>Content</td>
+                <td>Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($articles as $count => $article):?>
+                <tr>
+                    <td><?php echo $count+1 ?></td>
+                    <td  data-id="<?php echo $article->id ?>" class="name"><?php echo $article->title ?></td>
+                    <td class="link">
+                        <?php
+                        if(strlen($article->content) > 50)
+                            $content = substr($article->content, 0 , 50);
+                        else
+                            $content = $article->content;
+
+                        echo $article->content ?>
+                    </td>
+                    <td>
+                        <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#newModal" onclick="editArticle(this)" data-id="<?php echo $article->id ?>" style="cursor: pointer; color: #fff;">Edit</button>
+                        <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#newModal" onclick="deleteArticle(this)" data-id="<?php echo $article->id ?>" style="cursor: pointer; color: #fff;">Delete</button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php echo form_close() ?>
+
 <!-- AJAX -->
 <script>
-	$(function()
+    function toggleError ()
+    {
+        $(".error").toggleClass("hidden");
+        $(".error").toggleClass("movein");
+
+        setTimeout(function()
+        {
+            $(".error").toggleClass("hidden");
+            $(".error").toggleClass("movein");
+        },2000);
+    }
+
+    function toggleSuccess()
+    {
+        $(".success").toggleClass("hidden");
+        $(".success").toggleClass("movein");
+
+        setTimeout(function()
+        {
+            $(".success").toggleClass("hidden");
+            $(".success").toggleClass("movein");
+        },2000);
+    }
+
+    $(function()
 	{
 		$("#experience_table").DataTable();
 		$("#ability_table").DataTable();
@@ -273,33 +343,9 @@
 			});
 		});
 
-
-		function toggleError ()
-		{
-			$(".error").toggleClass("hidden");
-			$(".error").toggleClass("movein");
-
-			setTimeout(function()
-			{
-				$(".error").toggleClass("hidden");
-				$(".error").toggleClass("movein");
-			},2000);
-		}
-
-		function toggleSuccess()
-		{
-			$(".success").toggleClass("hidden");
-			$(".success").toggleClass("movein");
-
-			setTimeout(function()
-			{
-				$(".success").toggleClass("hidden");
-				$(".success").toggleClass("movein");
-			},2000);
-		}
-
 		$("#new_experience").click(function()
 		{
+		    $(".modal-body").empty();
 			$(".modal-title").html("New Experience");
 			$.post("<?php echo base_url('admin/newexperience') ?>", function(data){
 			    $(".modal-body").html(data).fadeIn();
@@ -308,14 +354,25 @@
 
 		$("#new_portfolio").click(function()
 		{
+            $(".modal-body").empty();
 			$(".modal-title").html("New Portfolio");
 			$.get("<?php echo base_url('admin/newportfolio') ?>", function(data){
 			    $(".modal-body").html(data).fadeIn();
 			});
 		});
 
+        $("#new_article").click(function()
+        {
+            $(".modal-body").empty();
+            $(".modal-title").html("New Article");
+            $.get("<?php echo base_url('admin/newarticle') ?>", function(data){
+                $(".modal-body").html(data).fadeIn();
+            });
+        });
+
 		$("#new_ability").click(function()
 		{
+            $(".modal-body").empty();
 			$(".modal-title").html("New Ability");
 			$.post("<?php echo base_url('admin/newability') ?>", function(data){
 			    $(".modal-body").html(data).fadeIn();
@@ -506,4 +563,33 @@
 			}
 		});
 	});
+
+    function editArticle(e){
+        var id = $(e).data('id');
+
+        $(".modal-body").empty();
+        $(".modal-title").html("Edit Article");
+        $.get("<?php echo base_url('admin/editarticle') ?>?id=" + id, function(data){
+            $(".modal-body").html(data).fadeIn();
+        });
+    }
+
+    function deleteArticle(e) {
+        var id = $(e).data('id');
+
+        $.ajax({
+            type: 'post',
+            url: "<?php echo base_url(); ?>admin/delete/articles",
+            data: {id: id},
+            success: function(res)
+            {
+                toggleSuccess();
+                location.reload();
+            },
+            error: function()
+            {
+                toggleError();
+            }
+        });
+    }
 </script>

@@ -45,8 +45,8 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body">
-	        &nbsp
+	      <div class="modal-body wrapper">
+              <!-- Filled w ajax -->
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

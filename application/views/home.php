@@ -238,12 +238,13 @@
           <span class="sectionTitle" id= "title2Ability">Articles</span>
         </div>
         <div class="autoplay-wrapper">
+        <?php if(empty($articles)): ?>
+            <h2 style="color:#fff; margin-left: 20px; font-weight: 300;">No Articles Right Now, Check back Soon!</h2>
+        <?php endif; ?>
           <div class="autoplay">
-            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
-            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
-            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
-            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
-            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
+              <?php foreach($articles as $article): ?>
+                    <div onclick="openArticle(this)" data-id="<?php echo $article->id ?>"><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR . 'upload/articles/' . $article->files ?>" data-target="#newModal" data-toggle="modal"></div>
+              <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -288,6 +289,23 @@ albertputrapurnama@gmail.com</li>
             $(this).css("width", (value/100) * width);
         });
     });
+
+    function openArticle (e)
+    {
+        var id = $(e).data('id');
+
+        $.ajax({
+            url: '<?php echo base_url() ?>/main/load_article',
+            type: 'POST',
+            data: { id:id },
+            success: function (response) {
+                $(".modal-body").html(response).fadeIn();
+            },
+            error: function(data) {
+                console.log(data.responseText);
+            }
+        });
+    }
   </script>
   <script src="<?php echo base_url() . JS_DIR ?>multiple.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>tilt.jquery.js"></script>

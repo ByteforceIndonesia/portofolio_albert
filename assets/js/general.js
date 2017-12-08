@@ -270,7 +270,7 @@ $('.autoplay').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 3500,
   adaptiveHeight: true,
   prevArrow:"<img class='a-left control-c prev slick-prev' src='assets/images/arrowLeft.png'>",
   nextArrow:"<img class='a-right control-c next slick-next' src='assets/images/arrowRight.png'>"

@@ -9,6 +9,10 @@
 
   <link rel="stylesheet" href="<?php echo base_url() . CSS_DIR . 'bootstrap.min.css' ?>">
 
+  <!--ridzki-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . CSS_DIR ?>slick.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . CSS_DIR ?>slick-theme.css" />
+
   <!-- JS -->
   <script src="<?php echo base_url() . JS_DIR . 'jquery-3.2.1.min.js' ?>"></script>
   <script src="<?php echo base_url() . JS_DIR . 'tether.min.js' ?>"></script>
@@ -19,6 +23,8 @@
   <script src="<?php echo base_url() . JS_DIR ?>animation.Velocity.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>debug.addIndicators.min.js"></script>
 
+ <!--ridzki-->
+ <script src="<?php echo base_url() . JS_DIR ?>slick.min.js"></script>
 
 
 </head>
@@ -221,6 +227,27 @@
       </div>
     </section>
 
+    <!-- ridzki -->  
+    <section class="pageSlide2 pageArtikel" id="slideArtikel">
+      <div class="pageWrapper">
+        <div class="pwTitle">
+          <div class="abIcon"id= "diamond2">
+            <object type="image/svg+xml" data="<?php echo base_url() . IMAGES_DIR ?>diamondW.svg" class="diamondGrey">
+            </object>
+          </div>
+          <span class="sectionTitle" id= "title2Ability">Articles</span>
+        </div>
+        <div class="autoplay-wrapper">
+          <div class="autoplay">
+            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
+            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
+            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
+            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
+            <div><img class="artikel-img" src="<?php echo base_url() . IMAGES_DIR ?>header.png" data-target="#newModal" data-toggle="modal"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="pageSlideFooter ">
       <div class="pageWrapper">

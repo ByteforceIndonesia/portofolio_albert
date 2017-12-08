@@ -570,3 +570,43 @@ font-family : code;
 #diamond1Career{
   transform : scaleX(0.1) scaleY(0.1);
 }
+
+.pageArtikel{
+  z-index : 100;
+  height:auto;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
+
+.pageArtikelWrap{
+  background-color : transparent;
+}
+.autoplay-wrapper{
+  padding: 2rem 0 3rem 0;
+}
+.artikel-img{
+  outline: none;
+  width: 100%;
+  box-shadow: 4px 4px 5px rgba(255,255,255,0.2);
+}
+.artikel-img:hover{
+  box-shadow: 8px 8px 5px rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition : all 0.2s ease-out;
+}
+
+.slick-slide{
+   margin: 0 10px;
+   height: auto !important;
+}
+.slick-list{
+  margin: 0 -10px;
+}
+.slick-next{
+  right: -40px !important;
+}
+.slick-prev{
+  left: -40px !important;
+}

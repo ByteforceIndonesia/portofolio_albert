@@ -19,16 +19,6 @@
   <script src="<?php echo base_url() . JS_DIR ?>animation.Velocity.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>debug.addIndicators.min.js"></script>
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-100098602-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
 
 
 </head>
@@ -215,9 +205,15 @@
           <div class="row" style="width:100%; margin:0;">
           <?php foreach($portfolio as $folio): ?>
             <div class="col-lg-4 col-md-6 folio">
-              <button class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->link; ?>);" data-target="#newModal" data-toggle="modal" id="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $folio->link; ?>">
-                <h5><?php echo $folio->name ?></h5>
-              </button>
+              <?php if(filter_var($folio->name, FILTER_VALIDATE_URL)): ?>
+                  <a class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->link; ?>); text-decoration: none" href="<?php echo $folio->name ?>">
+                      <h5><?php echo explode('http://', $folio->name)[1] ?></h5>
+                  </a>
+              <?php else: ?>
+                  <button class="portfolioItem" style="background:url(<?php echo base_url() . IMAGES_DIR . "upload/portfolio/" . $folio->link; ?>);" data-target="#newModal" data-toggle="modal" id="<?php echo base_url() . IMAGES_DIR . 'upload/portfolio/' . $folio->link; ?>">
+                    <h5><?php echo $folio->name ?></h5>
+                  </button>
+              <?php endif; ?>
             </div>
           <?php endforeach; ?>
           </div>
@@ -273,4 +269,14 @@ albertputrapurnama@gmail.com</li>
   <script src="<?php echo base_url() . JS_DIR ?>particle.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>general.js"></script>
   <script src="<?php echo base_url() . JS_DIR ?>general2.js"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100098602-1', 'auto');
+    ga('send', 'pageview');
+</script>
 </body>

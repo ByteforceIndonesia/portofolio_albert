@@ -518,7 +518,7 @@ font-family : code;
 }
 .portfolioItem{
   overflow: hidden;
-  display: block;
+  display: flex;
   border:0;
   margin-left: 1em;
   margin-top: 1em;
@@ -528,6 +528,8 @@ font-family : code;
   transition : all 0.2s ease-out;
   background-size: cover !important;
   justify-content: center;
+  border-radius: 10px;
+  color: #000;
 }
 
 .folio
@@ -540,11 +542,13 @@ font-family : code;
   box-shadow: 8px 8px 5px rgba(0,0,0,0.2);
   transform:scale(1.01)translateX(-3px)translateY(-3px);
   cursor:pointer;
+  color:#fff;
 }
 
 .portfolioItem h5{
   margin-top: 40%;
 }
+
 
 .pageSlideFooter{
   padding-top: 2em;

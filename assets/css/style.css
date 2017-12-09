@@ -612,13 +612,20 @@ font-family : code;
 }
 
 .modal-dialog {
-    height: 100%;
+    margin-top: 13vh !important;
+    height: 70vh;
     display: flex;
     justify-content:center;
     align-items: center;
+    z-index: 100000;
+}
+
+.modal-body {
+    overflow-y: scroll;
+    height:100%
 }
 
 .wrapper {
-    width:50vw;
+    min-width:50vw;
     padding:1.5em;
 }

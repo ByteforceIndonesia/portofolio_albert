@@ -52,3 +52,11 @@ $("#linkPort").click(function() {
   }, 800);
     return false;
 });
+
+$("#linkArticle").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#slideArtikel").offset().top,
+        specialEasing:speas
+    }, 800);
+    return false;
+});

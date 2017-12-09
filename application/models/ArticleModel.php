@@ -40,8 +40,8 @@ class ArticleModel extends CI_Model
                 'title'      => $this->title,
                 'content'    => $this->content,
                 'files'      => $this->files,
-                'created_at' => time(),
-                'updated_at' => time()
+                'created_at' => date("Y-m-d"),
+                'updated_at' => date("Y-m-d")
             ];
             return $this->db->insert($this->table, $data);
         }else {
@@ -50,7 +50,7 @@ class ArticleModel extends CI_Model
                 'title'      => $this->title,
                 'content'    => $this->content,
                 'files'      => $this->files,
-                'updated_at' => time()
+                'updated_at' => date("Y-m-d")
             ];
             return $this->db->set($data)->where(['id' => $this->id])->update($this->table);
         }

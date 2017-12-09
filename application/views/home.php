@@ -37,6 +37,7 @@
       <li><a href="#" id = "linkCareer">Career</a></li>
       <li><a href="#" id = "linkAbility">Ability</a></li>
       <li><a href="#" id = "linkPort">Portfolio</a></li>
+      <li><a href="#" id = "linkArticle">Articles</a></li>
     </ul>
   </nav>
 
